@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base href="http://megastar.fm/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="es" />
+    <meta name="keywords" content="radio, solo temazos, solotemazos, megastar, fm, megastarfm, benalmadena, malaga, chr" />
+    <meta name="description" content="Escucha online la nueva MegaStarFM – SOLO TEMAZOS." />
+
+    <!-- for Facebook -->
+    <meta property="og:image" content="http://megastar.fm/static/img/logo_background.jpg" />
+    <meta property="og:site_name" content="MegaStarFM" />
+    <meta property="og:description" content="MegaStarFM Benalmádena – SOLO TEMAZOS en el 91.1 FM" />
+    <meta property="og:title" content="MegaStarFM" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="MegaStar Benalmádena 91.1 FM" />
+    <meta name="twitter:description" content="Escucha la nueva MegaStarFM en el 91.1 FM de Benalmádena" />
+    <meta name="twitter:image" content="http://megastar.fm/static/img/logo_background.jpg" />
+
+    <title>MegaStar Benalmádena - 91.1 FM</title>
+
+    <link rel="icon" type="image/png" href="/static/img/favicon.png" />
+
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/video/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/video/style.min.css" />
+
+
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="/static/js/lib/jquery.knob.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/static/js/main.js"></script>
+	<script type="text/javascript" src="/static/js/ads.js"></script>
+	<script type="text/javascript" src="/static/js/datePicker.js"></script>
+
+	<script type="text/javascript" src="/static/js/video/utils/streamsense.min.js"></script>
+	<script type="text/javascript" src="/static/js/video/player.min.js"></script>
+
+</head>
+
+<body>
+
+	<div class="container_web">
+
+		<div id="background-container">
+			<figure id="background-image" ></figure>
+			<div class="grid" id="background_grid"></div>
+			<img id="background-image2" />
+		</div>
+
+		<div id="logo"><img src="/static/img/logo_megastar.png"></div>
+
+		<div class="player_circle">
+			<div id='player_spinner'></div>
+			<div id="player_volume_input">
+				<input type="text" value="100" class="dial" id="dial">
+			</div>
+			<div id="player_vol_minus" onclick="document.getElementById('myTune').volume -= 0.1"></div>
+			<div id="player_vol_plus" onclick="document.getElementById('myTune').volume += 0.1"></div>
+			<button id="player_main_ctrl" class="player_pause" style="visibility: inherit;" onclick="aud_play_pause()"></button>
+		</div>
+
+		<div id="content_block" style="width: 0%; min-width: 0%;">
+					
+			<div id="track_info">
+				<p id="player_title"></p>
+				<p id="player_artist"></p>
+			</div>
+
+
+		<div id="audio" class="audio">
+			<div id="container_player_47363" class="container_player_html5 player_sin">
+				<div id="player_47363" rel="/static/xml/megastar_audio_live.xml" class="add_in_video">
+				</div>
+			</div>
+		</div>
+
+		<div id="fb-root"></div>
+
+	</div>
+
+<!-- <embed type="application/x-shockwave-flash" src="http://www.todostreaming.es/player2.swf" width="800" height="24" style="undefined" id="player" name="player" bgcolor="#000000" quality="high" allowscriptaccess="always" allowfullscreen="false" flashvars="file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true" wmode="opaque"> -->
+
+<audio id="myTune" autoplay="autoplay">
+<source src="http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true">
+</audio>
+	<script>
+		var has_post = 0;
+		var current_track_id;
+        
+		
+        function aud_play_pause() {
+            var myAudio = document.getElementById("myTune");
+            if (myAudio.paused) {
+                $('#player_main_ctrl').removeClass('player_play');
+                $('#player_main_ctrl').addClass('player_pause');
+                myAudio.play();
+            } else {
+                $('#player_main_ctrl').removeClass('player_pause');
+                $('#player_main_ctrl').addClass('player_play');
+                myAudio.pause();
+            }
+        }
+    setInterval(function(){
+        $.get("http://apih.megastar.fm/?method=music.current_track_id", function (a) {
+                if(a.id_track != current_track_id) {
+                    current_track_id = a.id_track;
+                    changeAppearence(0);
+                    $("#track_info").show();
+
+                    if(a.title !== null){
+                        $("#player_title").html(a.title);
+                        $("#player_title").show();
+                    }else{
+                        $("#player_title").hide();
+                    }
+                    $("#player_artist").html(a.artist);
+
+                    var b = Math.floor(Math.random() * a.images.length);
+
+                    $("#background-image").css("background-image", "url(" + a.images[b].hash + ")");
+                    $("#background-image2").prop("src", APP_URL + "img/stars/" + a.images[b].color + ".png");
+                    $(".dial").trigger("configure", {
+                        fgColor: colors[a.images[b].color]
+                    });
+                    sel_color = colors[a.images[b].color];
+                    updateSelMainTabColor();
+
+                    if (a.lyrics !== "null" && a.lyrics != "NULL"){
+                        //a.lyrics = a.lyrics.replace(/\r?\n/g, "<br>");
+                        $("#lyrics_block").html(a.lyrics);
+                    }else{
+                        $("#lyrics_block").html("");
+                    }
+
+                    if (a.video_url !== null){
+
+                        var d = a.video_url;
+
+                        loadVideo(d);
+
+                        $("#track_video_block").show();
+                        $("#track_video_yt").show();
+
+                    }else{
+                        $("#track_video_block").hide();
+                        $("#track_video_yt").hide();
+                    }
+                    }
+		});
+    
+    },5000);
+	</script>
+
+	</body>
+</html>
