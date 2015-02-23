@@ -1,0 +1,148 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input:focus {
+	outline: none;
+}
+
+input[type=reset],
+input[type=submit] {
+	cursor: pointer;
+}
+
+/* For modern browsers */
+.cf:before,
+.cf:after,
+.wrapper:before,
+.wrapper:after,
+.main:before,
+.main:after,
+.main-content:before,
+.main-content:after,
+.content:before,
+.content:after,
+section.starred-modules:before,
+section.starred-modules:after,
+section.recent-main:before,
+section.recent-main:after,
+.footer-box:before,
+.footer-box:after,
+nav.sitemap ul:before,
+nav.sitemap ul:after,
+.slider .card .options .video:before,
+.slider .card .options .video:after,
+div.buy:before,
+div.buy:after,
+aside.sidebar div.establishments li:before,
+aside.sidebar div.establishments li:after,
+nav.breadcrumb:before,
+nav.breadcrumb:after,
+section.main div.info:before,
+section.main div.info:after,
+section.main div.taste:before,
+section.main div.taste:after,
+aside.sleeve div.small-mod div.tasting div.product:before,
+aside.sleeve div.small-mod div.tasting div.product:after,
+article.main div.navigation:before,
+article.main div.navigation:after,
+div.tastes-list div.product:before,
+div.tastes-list div.product:after,
+search.result:before,
+search.result:after,
+section.search-result ul:before,
+section.search-result ul:after {
+    content:"";
+    display:table;
+}
+
+.cf:after,
+.wrapper:after,
+.main:after,
+.main-content:after,
+.content:after,
+section.starred-modules:after,
+section.recent-main:after,
+.footer-box:after,
+nav.sitemap ul:after,
+.slider .card .options .video:after,
+div.buy:after,
+aside.sidebar div.establishments li:after,
+nav.breadcrumb:after,
+section.main div.info:after,
+section.main div.taste:after,
+aside.sleeve div.small-mod div.tasting div.product:after,
+article.main div.navigation:after,
+div.tastes-list div.product:after,
+search.result:after,
+section.search-result ul:after {
+    clear:both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.cf,
+.wrapper,
+.main,
+.content,
+.main-content,
+section.starred-modules,
+section.recent-main,
+.footer-box,
+nav.sitemap ul,
+.slider .card .options .video,
+div.buy,
+aside.sidebar div.establishments li,
+nav.breadcrumb,
+section.main div.info,
+section.main div.taste,
+aside.sleeve div.small-mod div.tasting div.product,
+article.main div.navigation,
+div.tastes-list div.product,
+search.result,
+section.search-result ul {
+    zoom:1;
+}
