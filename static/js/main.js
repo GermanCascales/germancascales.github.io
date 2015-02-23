@@ -1,5 +1,5 @@
     var API_PATH = "http://apih.megastar.fm/";
-    var APP_URL = "/static/";
+    var APP_URL = "static/";
 
     var new_config = {
         isLive: false,
