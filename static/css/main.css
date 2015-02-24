@@ -259,7 +259,7 @@ body{
 }
 
 #logo img{
-	width: 100%;
+	width: 15em;
 	display: block;
 	position: relative;
 }
@@ -1470,6 +1470,7 @@ iframe.twitter-timeline{
 	padding-bottom: 56.25%;
 	padding-top: 25px;
 	height: 0;
+    margin-bottom: 0.5em;
 }
 
 #track_video_i iframe{
@@ -1943,4 +1944,8 @@ div.apps div.page_wrapper p{
 }
 a.ui-datepicker-prev,a.ui-datepicker-next{
 	position: static !important;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
 }

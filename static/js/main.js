@@ -13,15 +13,33 @@ colors[4] = "#ae805e";
 colors[5] = "rgba(251,11,26,0.6)";
 colors[6] = "rgba(238,0,123,0.6)";
 
+function capitalize(string) {
+    var words = string.split(" ");
+    var output = "";
+    var lowerWord, capitalizedWord;
+    for (i = 0; i < words.length; i++) {
+        lowerWord = words[i].toLowerCase();
+        lowerWord = lowerWord.trim();
+        capitalizedWord = lowerWord.slice(0, 1).toUpperCase() + lowerWord.slice(1);
+        output += capitalizedWord;
+        if (i != words.length - 1) {
+            output += " ";
+        }
+    }
+    output[output.length - 1] = '';
+    return output;
+}
+
 function changeAppearence() {
     showTrackId = current_track_id;
 
 	$.getJSON(API_PATH + "?method=music.track_info&id=" + showTrackId + "&type=big", function (a) {
         $("#track_info").show();
-
+        
         if (a.title !== null) {
             $("#player_title").html(a.title);
             $("#player_title").show();
+            $("#dialog").dialog("option", "title", a.title + ' ‒ ' + capitalize(a.artist));
         } else {
             $("#player_title").hide();
         }
@@ -33,7 +51,24 @@ function changeAppearence() {
         $("#background-image").css("background-image", "url(" + a.images[b].hash + ")");
         $("#background-image2").prop("src", APP_URL + "img/stars/" + a.images[b].color + ".png");
         sel_color = colors[a.images[b].color];
+        
+        if (a.lyrics && a.lyrics !== "null" && a.lyrics !== "") {
+            //a.lyrics = a.lyrics.replace(/\r?\n/g, "<br>");
+            $("#lyrics_block").html(a.lyrics);
+            $("#opener").show();
+        } else {
+            $("#lyrics_block").html("");
+            $("#opener").hide();
+		}
 
+        if (a.video_url !== null){
+            var d = a.video_url;
+
+            $("#track_video_yt").show();
+            $("#track_video_yt").html("<iframe src=\"http://www.youtube.com/embed/" + d + "\"></iframe>");
+        } else {
+            $("#track_video_yt").hide();
+        }
     });
 }
 
@@ -61,3 +96,29 @@ function aud_play_pause() {
         myAudio.pause();
     }
 }
+
+
+$(function () {
+    $("#dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        dialogClass: "no-close",
+        maxHeight: 600,
+        show: {
+            effect: "puff",
+            duration: 500
+        },
+        hide: {
+            effect: "drop",
+            duration: 500
+        }
+    });
+ 
+    $("#opener").click(function () {
+        $("#dialog").dialog("open");
+    });
+     
+    $("body").on("click", ".ui-widget-overlay", function () {
+        $('#dialog').dialog("close");
+    });
+});
