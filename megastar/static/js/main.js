@@ -105,11 +105,6 @@ function stopAudio() {
     audio.src = "";
     audio.load();
     $("audio").remove();
-
-    $("#audio-player").html("<audio controls preload='none'></audio>");
-    audio = $("audio").get(0);
-    audio.src = tmp;
-    audio.addEventListener('pause', stopAudio());
 }
 
 // lyrics&video dialog
