@@ -63,13 +63,12 @@ function changeAppearence() {
             $("#opener").hide();
 		}
 
-        if (a.video_url !== null) {
+        if (a.video_url && a.video_url !== "null" && a.video_url !== "") {
             var d = a.video_url;
-
-            $("#track_video_yt").show();
+            $("#track_video_i").show();
             $("#track_video_yt").html("<iframe src=\"http://www.youtube.com/embed/" + d + "\"></iframe>");
         } else {
-            $("#track_video_yt").hide();
+            $("#track_video_i").hide();
         }
     });
 }
