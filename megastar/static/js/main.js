@@ -3,6 +3,8 @@ var APP_URL = "static/";
 var sel_color;
 var showTrackId;
 
+var flashPlayerActivo = 0;
+
 var current_track_id = 0;
 
 var colors = new Array();
@@ -61,7 +63,7 @@ function changeAppearence() {
             $("#opener").hide();
 		}
 
-        if (a.video_url !== null){
+        if (a.video_url !== null) {
             var d = a.video_url;
 
             $("#track_video_yt").show();
@@ -97,7 +99,7 @@ function aud_play_pause() {
     }
 }
 
-
+// lyrics&video dialog
 $(function () {
     $("#dialog").dialog({
         autoOpen: false,
@@ -122,3 +124,16 @@ $(function () {
         $('#dialog').dialog("close");
     });
 });
+
+function loadFlashPlayer() {
+    if (flashPlayerActivo == 0) {
+        var myAudio = document.getElementById("myTune");
+        $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
+        $('.player_circle').remove()
+        myAudio.pause();
+        flashPlayerActivo = 1;
+    } else {
+        null;
+    }
+    
+}
