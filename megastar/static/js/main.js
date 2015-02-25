@@ -98,6 +98,20 @@ function aud_play_pause() {
     }
 }
 
+function stopAudio() {
+    var audio = document.getElementById("myTune");
+    audio.pause(0);
+    var tmp = audio.src;
+    audio.src = "";
+    audio.load();
+    $("audio").remove();
+
+    $("#audio-player").html("<audio controls preload='none'></audio>");
+    audio = $("audio").get(0);
+    audio.src = tmp;
+    audio.addEventListener('pause', stopAudio());
+}
+
 // lyrics&video dialog
 $(function () {
     $("#dialog").dialog({
@@ -129,7 +143,9 @@ function loadFlashPlayer() {
         var myAudio = document.getElementById("myTune");
         $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
         $('.player_circle').remove()
-        myAudio.pause();
+        stopAudio();
+        $('#myTune').remove()
+        // myAudio.pause();
         flashPlayerActivo = 1;
     } else {
         null;
