@@ -57,9 +57,14 @@
 		</div>
 
 		<div id="content_block" style="width: 0%; min-width: 0%;">
-            <a href="#" id="opener" data-tab="letra" title="Lyrics">
+            <a href="#" id="openerLyrics" data-tab="letra" title="Lyrics">
                 <div class="tab_main" data-target="page_letra" style="top: 340px;">
                     <img src="static/img/icon_microphone.png" />
+                </div>
+            </a>
+            <a href="#" id="openerTemazoTortazo" data-tab="temazotortazo" title="¿#Temazo o #Tortazo?">
+                <div class="tab_main" data-target="page_temazotortazo" style="top: 342px;">
+                    <img src="static/img/icon_temazo.png" />
                 </div>
             </a>
             <div id="track_info">
@@ -67,13 +72,17 @@
                 <p id="player_artist"></p>
 			</div>
 		</div>
-        
+
         <div id="dialog" title="Lyrics" style="max-width: 700px;">
 			<div id="track_video_i">
 				<div id="track_video_yt"></div>
 			</div>            
             <p id="lyrics_block"></p>
-        </div>        
+        </div>
+        
+        <div id="temazotortazo">
+            <!-- iframe -->
+        </div>
     </div>
 
     <audio id="myTune" autoplay="autoplay">

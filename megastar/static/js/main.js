@@ -4,6 +4,7 @@ var sel_color;
 var showTrackId;
 
 var flashPlayerActivo = 0;
+var temazoTortazoActivo = 0;
 
 var current_track_id = 0;
 
@@ -57,10 +58,10 @@ function changeAppearence() {
         if (a.lyrics && a.lyrics !== "null" && a.lyrics !== "") {
             //a.lyrics = a.lyrics.replace(/\r?\n/g, "<br>");
             $("#lyrics_block").html(a.lyrics);
-            $("#opener").show();
+            $("#openerLyrics").show();
         } else {
             $("#lyrics_block").html("");
-            $("#opener").hide();
+            $("#openerLyrics").hide();
 		}
 
         if (a.video_url && a.video_url !== "null" && a.video_url !== "") {
@@ -101,7 +102,6 @@ function aud_play_pause() {
 function stopAudio() {
     var audio = document.getElementById("myTune");
     audio.pause(0);
-    var tmp = audio.src;
     audio.src = "";
     audio.load();
     $("audio").remove();
@@ -124,8 +124,18 @@ $(function () {
         }
     });
  
-    $("#opener").click(function () {
+    $("#openerLyrics").click(function () {
         $("#dialog").dialog("open");
+    });
+    
+    $("#openerTemazoTortazo").click(function () {
+        if (temazoTortazoActivo == 0) {
+            $("#temazotortazo").html("<iframe src=\"https://www.lumicatch.com/viewer/YFyoMmfkGCh1643\" frameborder=\"false\" scrolling=\"false\" style=\"width: 846px; height: 510px; z-index: 20;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);\"></iframe>");
+            temazoTortazoActivo = 1;
+        } else {
+            $("#temazotortazo").html("");
+            temazoTortazoActivo = 0;
+        }
     });
      
     $("body").on("click", ".ui-widget-overlay", function () {
@@ -137,10 +147,9 @@ function loadFlashPlayer() {
     if (flashPlayerActivo == 0) {
         var myAudio = document.getElementById("myTune");
         $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
+        //$("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://195.55.74.221/cope/megastar.mp3&amp;autostart=true\" wmode=\"opaque\">");
         $('.player_circle').remove()
         stopAudio();
-        $('#myTune').remove()
-        // myAudio.pause();
         flashPlayerActivo = 1;
     } else {
         null;
