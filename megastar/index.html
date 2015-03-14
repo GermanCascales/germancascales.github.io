@@ -21,7 +21,7 @@
     
 
     <link rel="icon" sizes="175x175" href="static/img/icon175x175.png">
-     <link rel="icon" type="image/png" href="static/img/favicon.png" />
+    <link rel="icon" type="image/png" href="static/img/favicon.png" />
     
     <title>MegaStar Costa del Sol - 97.1 FM</title>
    
@@ -96,9 +96,9 @@
 
 	<link rel="stylesheet" type="text/css" href="static/css/main.css" />
     <link rel="stylesheet" type="text/css" href="static/css/video/reset.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script type="text/javascript" src="static/js/main.js"></script>
     <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
     <script type="text/javascript" src="static/js/jquery.countdown.min.js"></script>
@@ -127,16 +127,18 @@
 		</div>
 
 		<div id="content_block" style="width: 0%; min-width: 0%;">
-            <a href="#" id="openerLyrics" data-tab="letra" title="Lyrics">
-                <div class="tab_main" data-target="page_letra" style="top: 340px;">
-                    <img src="static/img/icon_microphone.png" />
-                </div>
-            </a>
-            <a href="#" id="openerTemazoTortazo" data-tab="temazotortazo" title="¿#Temazo o #Tortazo?">
-                <div class="tab_main" data-target="page_temazotortazo" style="top: 342px;">
-                    <img src="static/img/icon_temazo.png" />
-                </div>
-            </a>
+            <div class="main_tab_block">
+                <a href="#" id="openerTemazoTortazo" data-tab="temazotortazo" title="¿#Temazo o #Tortazo?">
+                    <div class="tab_main" data-target="page_temazotortazo">
+                        <img src="static/img/icon_temazo.png" />
+                    </div>
+                </a>
+                <a href="#" id="openerLyrics" data-tab="letra" title="Lyrics">
+                    <div class="tab_main" data-target="page_letra">
+                        <img src="static/img/icon_microphone.png" />
+                    </div>
+                </a>
+            </div>
             <div id="track_info">
                 <p id="player_title"></p>
                 <p id="player_artist"></p>
@@ -156,7 +158,7 @@
     </div>
 
     <audio id="myTune" autoplay="autoplay">
-        <source src="http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true">
+        <source src="http://91.121.68.52:8012/;stream.nsv">
     </audio>
     
 <script type="text/javascript">
