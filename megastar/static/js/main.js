@@ -75,7 +75,6 @@ function changeAppearence() {
 }
 
 $(document).ready(function () {
-    aud_play_pause(); // desde móvil no funciona autoplay, se fuerza a reproducir al inicio
     changeAppearence(0); // en el inicio, current_track_id = 0, el id 0 muestra el programa actual hasta que ocurra el intervalo
     setInterval(function () {
         $.get(API_PATH + "?method=music.current_track_id", function (a) {
@@ -85,6 +84,7 @@ $(document).ready(function () {
             }
         });
     }, 5000);
+    aud_play_pause(); // desde móvil no funciona autoplay, se fuerza a reproducir al inicio
 });
 
 function aud_play_pause() {
