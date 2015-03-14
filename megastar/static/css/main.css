@@ -188,7 +188,7 @@ body{
     font-weight: 400;
     background: rgba(0,0,0,0.6);
     padding: 3px 8px;
-    /*white-space:nowrap;*/
+    white-space:nowrap;
 }
 
 .logo{
