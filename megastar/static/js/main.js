@@ -88,7 +88,7 @@ function changeAppearence() {
             // If it's okay let's create a notification
             var notification = new Notification(a.artist, {
                 body: a.title,
-                icon: '/megastar/img/ic_launcher_blue.png'
+                icon: '/megastar/static/img/ic_launcher_blue.png'
             });
             setTimeout(function(){
                 notification.close();
@@ -102,7 +102,7 @@ function changeAppearence() {
                 if (permission === "granted") {
                     var notification = new Notification(a.artist, {
                         body: a.title,
-                        icon: '/megastar/img/ic_launcher_blue.png'
+                        icon: '/megastar/static/img/ic_launcher_blue.png'
                     });
                     setTimeout(function(){
                         notification.close();
