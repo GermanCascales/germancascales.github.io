@@ -1,0 +1,27 @@
+#track_info {
+    text-align: center;
+    margin-top: -4%;
+    margin-left: auto;
+    margin-right: auto;
+    /*bottom: 20%;
+    left: 10%;*/
+}
+ 
+#track_info p:first-of-type {
+    white-space: normal;
+    display: inline-block;
+}
+    
+#track_info p:last-of-type {        
+    display: inline-block;
+    white-space: normal;
+}
+    
+#countdown {
+    display: none;
+}
+    
+.logo {
+    bottom: 1%;
+    right: 80%;
+}
