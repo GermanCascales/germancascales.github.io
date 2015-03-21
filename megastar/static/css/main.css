@@ -527,6 +527,7 @@ div#lyrics_block p {
     height: initial;
     bottom: 0%;
     max-height: 1080px;
+    pointer-events: none;
 }
 #player_volume_input{
     position: absolute;

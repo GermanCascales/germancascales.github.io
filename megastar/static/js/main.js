@@ -2,6 +2,7 @@ var API_PATH = "http://apih.megastar.fm/";
 var APP_URL = "static/";
 var sel_color;
 var showTrackId;
+var dpi;
 
 var flashPlayerActivo = 0;
 var temazoTortazoActivo = 0;
@@ -36,7 +37,7 @@ function capitalize(string) {
 function changeAppearence() {
     showTrackId = current_track_id;
 
-	$.getJSON(API_PATH + "?method=music.track_info&id=" + showTrackId + "&type=big", function (a) {
+	$.getJSON(API_PATH + "?method=music.track_info&id=" + showTrackId + "&type=" + dpi, function (a) {
         $("#track_info").show();
         
         if (a.title !== null) {
@@ -75,8 +76,11 @@ function changeAppearence() {
 }
 
 $(document).ready(function () {
-    changeAppearence(0); // en el inicio, current_track_id = 0, el id 0 muestra el programa actual hasta que ocurra el intervalo
+    checkPlayer(); // desde móvil, es imposible el autoplay => mostrar botón play si no se está reproduciendo
+    checkDpi();
+    changeAppearence("0"); // en el inicio, current_track_id = 0, el id 0 muestra el programa actual hasta que ocurra el intervalo
     setInterval(function () {
+        checkPlayer();
         $.get(API_PATH + "?method=music.current_track_id", function (a) {
             if (a.id_track !== current_track_id) {
                 current_track_id = a.id_track;
@@ -84,7 +88,6 @@ $(document).ready(function () {
             }
         });
     }, 5000);
-    aud_play_pause(); // desde móvil no funciona autoplay, se fuerza a reproducir al inicio
 });
 
 function aud_play_pause() {
@@ -108,6 +111,27 @@ function stopAudio() {
     audio.src = "";
     audio.load();
     $("audio").remove();
+}
+
+function checkDpi() {
+    if ($(window).width() < 1024) {
+        dpi = "xhdpi";
+    } else {
+        dpi = "big";
+    }
+}
+
+function checkPlayer() {
+    var myAudio = document.getElementById("myTune");
+    if (myAudio.playing) {
+        $('#player_main_ctrl').removeClass('player_pause');
+        $('#player_main_ctrl').addClass('player_play');
+        $('#player_spinner').addClass('pause');
+    } else {
+        $('#player_main_ctrl').removeClass('player_play');
+        $('#player_main_ctrl').addClass('player_pause');
+        $('#player_spinner').removeClass('pause');
+    }
 }
 
 // lyrics&video dialog

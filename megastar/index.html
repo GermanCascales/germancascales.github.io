@@ -96,10 +96,9 @@
 
 	<link rel="stylesheet" type="text/css" href="static/css/main.css" />
     <link rel="stylesheet" type="text/css" href="static/css/video/reset.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="static/css/jquery-ui.css">
     
-    <link rel="stylesheet" type="text/css" media="only screen and (min-device-width : 320px) and (max-device-width : 480px)" href="static/css/mobile.css" />
-    <link rel="stylesheet" type="text/css" media="screen and (min-width:501px) and (max-width:999px)" href="static/css/mobile.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:320px) and (max-width:999px)" href="static/css/mobile.css" />
 
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
 	<script type="text/javascript" src="static/js/main.js"></script>
@@ -123,7 +122,7 @@
         </div>
         
 		<div class="player_circle">
-			<div id='player_spinner'></div>
+			<div id="player_spinner" class="pause"></div>
 			<div id="player_vol_minus" onclick="document.getElementById('myTune').volume -= 0.1"></div>
 			<div id="player_vol_plus" onclick="document.getElementById('myTune').volume += 0.1"></div>
 			<button id="player_main_ctrl" class="player_play" style="visibility: inherit;" onclick="aud_play_pause()"></button>
@@ -142,15 +141,14 @@
                     </div>
                 </a>
             </div>
-
 		</div>
-        
+
         <div id="track_info">
             <p id="player_title"></p>
             <p class="clear"></p>
             <p id="player_artist"></p>
         </div>
-        
+
         <div id="dialog" title="Lyrics" style="max-width: 700px;">
 			<div id="track_video_i">
 				<div id="track_video_yt"></div>
