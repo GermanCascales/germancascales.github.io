@@ -83,7 +83,7 @@ function changeAppearence() {
             // If it's okay let's create a notification
             var notification = new Notification(a.artist, {
                 body: a.title,
-                icon: colors[a.images[b].color];
+                icon: colors[a.images[b].color]
             });
             setTimeout(function(){
                 notification.close();
@@ -97,7 +97,7 @@ function changeAppearence() {
                 if (permission === "granted") {
                     var notification = new Notification(a.artist, {
                         body: a.title,
-                        icon: colors[a.images[b].color];
+                        icon: colors[a.images[b].color]
                     });
                     setTimeout(function(){
                         notification.close();
