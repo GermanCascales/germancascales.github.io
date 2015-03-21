@@ -10,12 +10,12 @@ var temazoTortazoActivo = 0;
 var current_track_id = 0;
 
 var colors = new Array();
-colors[1] = "#15ab31";
-colors[2] = "#f6c500";
-colors[3] = "rgba(0,161,211,0.7)";
-colors[4] = "#ae805e";
-colors[5] = "rgba(251,11,26,0.6)";
-colors[6] = "rgba(238,0,123,0.6)";
+colors[1] = "http://germancascales.github.io/megastar/static/img/ic_launcher_green.png";
+colors[2] = "http://germancascales.github.io/megastar/static/img/ic_launcher_yellow.png";
+colors[3] = "http://germancascales.github.io/megastar/static/img/ic_launcher_blue.png";
+colors[4] = "http://germancascales.github.io/megastar/static/img/ic_launcher_black.png";
+colors[5] = "http://germancascales.github.io/megastar/static/img/ic_launcher_red.png";
+colors[6] = "http://germancascales.github.io/megastar/static/img/ic_launcher_pink.png";
 
 function capitalize(string) {
     var words = string.split(" ");
@@ -54,11 +54,6 @@ function changeAppearence() {
 
         $("#background-image").css("background-image", "url(" + a.images[b].hash + ")");
         $("#background-image2").prop("src", APP_URL + "img/stars/" + a.images[b].color + ".png");
-        sel_color = colors[a.images[b].color];
-        
-        $(".dial").trigger("configure", {
-				fgColor: colors[a.images[b].color]
-			});
         
         if (a.lyrics && a.lyrics !== "null" && a.lyrics !== "") {
             //a.lyrics = a.lyrics.replace(/\r?\n/g, "<br>");
@@ -88,7 +83,7 @@ function changeAppearence() {
             // If it's okay let's create a notification
             var notification = new Notification(a.artist, {
                 body: a.title,
-                icon: 'http://germancascales.github.io/megastar/static/img/ic_launcher_blue.png'
+                icon: colors[a.images[b].color];
             });
             setTimeout(function(){
                 notification.close();
@@ -102,7 +97,7 @@ function changeAppearence() {
                 if (permission === "granted") {
                     var notification = new Notification(a.artist, {
                         body: a.title,
-                        icon: 'http://germancascales.github.io/megastar/static/img/ic_launcher_blue.png'
+                        icon: colors[a.images[b].color];
                     });
                     setTimeout(function(){
                         notification.close();
