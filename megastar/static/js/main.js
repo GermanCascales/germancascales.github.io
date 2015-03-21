@@ -56,6 +56,10 @@ function changeAppearence() {
         $("#background-image2").prop("src", APP_URL + "img/stars/" + a.images[b].color + ".png");
         sel_color = colors[a.images[b].color];
         
+        $(".dial").trigger("configure", {
+				fgColor: colors[a.images[b].color]
+			});
+        
         if (a.lyrics && a.lyrics !== "null" && a.lyrics !== "") {
             //a.lyrics = a.lyrics.replace(/\r?\n/g, "<br>");
             $("#lyrics_block").html(a.lyrics);
@@ -72,15 +76,59 @@ function changeAppearence() {
         } else {
             $("#track_video_i").hide();
         }
+        
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
+            alert("Este navegador no soporta notificaciones");
+        }
+
+        // Let's check if the user is okay to get some notification
+        else if (Notification.permission === "granted") {
+            // If it's okay let's create a notification
+            var notification = new Notification(a.artist, {
+                body: a.title,
+                icon: '../img/ic_launcher_blue.png'
+            });
+        }
+
+        // Otherwise, we need to ask the user for permission
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission(function (permission) {
+                // If the user is okay, let's create a notification
+                if (permission === "granted") {
+                    var notification = new Notification("Holi!");
+                }
+            });
+        }
     });
 }
 
+function checkDpi() {
+    if ($(window).width() < 1024) {
+        dpi = "xhdpi";
+    } else {
+        dpi = "big";
+    }
+}
+
+function checkPlayer() {
+    var myAudio = document.getElementById("myTune");
+    if (myAudio.playing) {
+        $('#player_main_ctrl').removeClass('player_pause');
+        $('#player_main_ctrl').addClass('player_play');
+        $('#player_spinner').addClass('pause');
+    } else {
+        $('#player_main_ctrl').removeClass('player_play');
+        $('#player_main_ctrl').addClass('player_pause');
+        $('#player_spinner').removeClass('pause');
+    }
+}
+
 $(document).ready(function () {
-    checkPlayer(); // desde móvil, es imposible el autoplay => mostrar botón play si no se está reproduciendo
     checkDpi();
-    changeAppearence("0"); // en el inicio, current_track_id = 0, el id 0 muestra el programa actual hasta que ocurra el intervalo
+    changeAppearence(); // en el inicio, current_track_id = 0, el id 0 muestra el programa actual hasta que ocurra el intervalo
+    request_permission();
     setInterval(function () {
-        checkPlayer();
         $.get(API_PATH + "?method=music.current_track_id", function (a) {
             if (a.id_track !== current_track_id) {
                 current_track_id = a.id_track;
@@ -113,25 +161,12 @@ function stopAudio() {
     $("audio").remove();
 }
 
-function checkDpi() {
-    if ($(window).width() < 1024) {
-        dpi = "xhdpi";
-    } else {
-        dpi = "big";
-    }
-}
+function request_permission()
+{
 
-function checkPlayer() {
-    var myAudio = document.getElementById("myTune");
-    if (myAudio.playing) {
-        $('#player_main_ctrl').removeClass('player_pause');
-        $('#player_main_ctrl').addClass('player_play');
-        $('#player_spinner').addClass('pause');
-    } else {
-        $('#player_main_ctrl').removeClass('player_play');
-        $('#player_main_ctrl').addClass('player_pause');
-        $('#player_spinner').removeClass('pause');
-    }
+
+  // At last, if the user already denied any notification, and you 
+  // want to be respectful there is no need to bother them any more.
 }
 
 // lyrics&video dialog
@@ -175,11 +210,10 @@ function loadFlashPlayer() {
         var myAudio = document.getElementById("myTune");
         $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
         //$("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://195.55.74.208/cope/megastar.mp3&amp;autostart=true\" wmode=\"opaque\">");
-        $('.player_circle').remove()
+        $('.player_circle').remove();
         stopAudio();
         flashPlayerActivo = 1;
     } else {
         null;
     }
-    
 }

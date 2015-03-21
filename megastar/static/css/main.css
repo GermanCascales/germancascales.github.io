@@ -517,6 +517,7 @@ div#lyrics_block p {
     height: 100%;
     background-size: cover;
     background-position: 70% 70%;
+    transition: background 0.5s linear;
 }
 #background-image2{
     position: absolute;
@@ -528,17 +529,9 @@ div#lyrics_block p {
     bottom: 0%;
     max-height: 1080px;
     pointer-events: none;
+    transition: background 0.5s linear;
 }
-#player_volume_input{
-    position: absolute;
-    left: 6px;
-    top: 6px;
-    height: 120px;
-    overflow: hidden;
-}
-#player_volume_input .dial{
-    visibility:hidden;
-}
+
 #player_title{
     font-size: 25px;
     font-weight: 300;

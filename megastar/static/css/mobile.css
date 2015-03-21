@@ -18,11 +18,8 @@
 }
 
 #background-image {
-    background-position: 50% 20%;
-}
-
-#background-image {
     max-width: 100%;
+    background-position: 50% 20%;
 }
     
 #countdown {
@@ -31,5 +28,9 @@
     
 .logo {
     bottom: 1%;
-    right: 80%;
+    width: 22%;
+}
+
+#openerTemazoTortazo {
+    display: none;
 }
