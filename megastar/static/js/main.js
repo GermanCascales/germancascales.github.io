@@ -88,11 +88,11 @@ function changeAppearence() {
             // If it's okay let's create a notification
             var notification = new Notification(a.artist, {
                 body: a.title,
-                icon: 'http://germancascales.github.io/static/img/ic_launcher_blue.png'
+                icon: '../img/ic_launcher_blue.png'
             });
             setTimeout(function(){
                 notification.close();
-            }, 3000); 
+            }, 5000); 
         }
 
         // Otherwise, we need to ask the user for permission
@@ -102,11 +102,11 @@ function changeAppearence() {
                 if (permission === "granted") {
                     var notification = new Notification(a.artist, {
                         body: a.title,
-                        icon: 'http://germancascales.github.io/static/img/ic_launcher_blue.png'
+                        icon: '../img/ic_launcher_blue.png'
                     });
                     setTimeout(function(){
                         notification.close();
-                    }, 3000); 
+                    }, 5000); 
                 }
             });
         }
