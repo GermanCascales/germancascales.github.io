@@ -1,8 +1,9 @@
 var API_PATH = "http://apih.megastar.fm/";
 var APP_URL = "static/";
-var sel_color;
 var showTrackId;
 var dpi;
+var sleepActivo = 0;
+var sleepTime;
 
 var flashPlayerActivo = 0;
 var temazoTortazoActivo = 0;
@@ -72,36 +73,34 @@ function changeAppearence() {
             $("#track_video_i").hide();
         }
         
-        // Let's check if the browser supports notifications
+        // Comprobamos si el navegador soporta notificaciones
         if (!("Notification" in window)) {
             //alert("Este navegador no soporta notificaciones");
             null;
-        }
-
-        // Let's check if the user is okay to get some notification
-        else if (Notification.permission === "granted") {
-            // If it's okay let's create a notification
+            
+        } else if (Notification.permission === "granted") {
+            // Ya teníamos permiso :3
             var notification = new Notification(a.artist, {
                 body: a.title,
                 icon: colors[a.images[b].color]
             });
-            setTimeout(function(){
+            
+            setTimeout(function () {
                 notification.close();
-            }, 5000); 
-        }
-
-        // Otherwise, we need to ask the user for permission
-        else if (Notification.permission !== 'denied') {
+            }, 5000);
+            
+        } else if (Notification.permission !== 'denied') {
             Notification.requestPermission(function (permission) {
-                // If the user is okay, let's create a notification
+                // Se envía notificación después de dar permiso
                 if (permission === "granted") {
                     var notification = new Notification(a.artist, {
                         body: a.title,
                         icon: colors[a.images[b].color]
                     });
-                    setTimeout(function(){
+                    
+                    setTimeout(function () {
                         notification.close();
-                    }, 5000); 
+                    }, 5000);
                 }
             });
         }
@@ -117,29 +116,33 @@ function checkDpi() {
 }
 
 function checkPlayer() {
-    var myAudio = document.getElementById("myTune");
-    if (myAudio.playing) {
-        $('#player_main_ctrl').removeClass('player_pause');
-        $('#player_main_ctrl').addClass('player_play');
-        $('#player_spinner').addClass('pause');
-    } else {
-        $('#player_main_ctrl').removeClass('player_play');
-        $('#player_main_ctrl').addClass('player_pause');
-        $('#player_spinner').removeClass('pause');
+    if (flashPlayerActivo == 0) {
+        var myAudio = document.getElementById("myTune");
+        if (myAudio.playing) {
+            $('#player_main_ctrl').removeClass('player_pause');
+            $('#player_main_ctrl').addClass('player_play');
+            $('#player_spinner').addClass('pause');
+        } else {
+            $('#player_main_ctrl').removeClass('player_play');
+            $('#player_main_ctrl').addClass('player_pause');
+            $('#player_spinner').removeClass('pause');
+        }
     }
 }
 
 $(document).ready(function () {
     checkDpi();
-    changeAppearence(); // en el inicio, current_track_id = 0, el id 0 muestra el programa actual hasta que ocurra el intervalo
-    request_permission();
+    changeAppearence(); // en el inicio, current_track_id = 0 hasta que ocurra el intervalo; el id 0 muestra el programa actual
+    checkPlayer();
     setInterval(function () {
+        checkDpi();
         $.get(API_PATH + "?method=music.current_track_id", function (a) {
             if (a.id_track !== current_track_id) {
                 current_track_id = a.id_track;
                 changeAppearence();
             }
         });
+        checkPlayer();
     }, 5000);
 });
 
@@ -166,17 +169,24 @@ function stopAudio() {
     $("audio").remove();
 }
 
-function request_permission()
-{
-
-
-  // At last, if the user already denied any notification, and you 
-  // want to be respectful there is no need to bother them any more.
-}
-
 // lyrics&video dialog
 $(function () {
     $("#dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        dialogClass: "no-close",
+        maxHeight: 600,
+        show: {
+            effect: "puff",
+            duration: 500
+        },
+        hide: {
+            effect: "drop",
+            duration: 500
+        }
+    });
+    
+    $("#dialogRadio").dialog({
         autoOpen: false,
         modal: true,
         dialogClass: "no-close",
@@ -195,6 +205,10 @@ $(function () {
         $("#dialog").dialog("open");
     });
     
+    $("#openerRadio").click(function () {
+        $("#dialogRadio").dialog("open");
+    });
+    
     $("#openerTemazoTortazo").click(function () {
         if (temazoTortazoActivo == 0) {
             $("#temazotortazo").html("<iframe src=\"https://www.lumicatch.com/viewer/YFyoMmfkGCh1643\" frameborder=\"false\" scrolling=\"false\" style=\"width: 846px; height: 510px; z-index: 20;position: fixed;top: 50%;left: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%);\"></iframe>");
@@ -207,6 +221,7 @@ $(function () {
      
     $("body").on("click", ".ui-widget-overlay", function () {
         $('#dialog').dialog("close");
+        $('#dialogRadio').dialog("close");
     });
 });
 
