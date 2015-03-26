@@ -115,7 +115,7 @@ function checkDpi() {
 
 function checkPlayer() {
     if (flashPlayerActivo == 0) {
-        var myAudio = document.getElementById("myTune");
+        var myAudio = document.getElementById("stream");
         if (myAudio.playing) {
             $('#player_main_ctrl').removeClass('player_pause');
             $('#player_main_ctrl').addClass('player_play');
@@ -142,11 +142,31 @@ function timer() {
     });
 }
 
+function indicativo() {
+    if (flashPlayerActivo == 0) {
+        $( "#logo" ).mouseover(function() {
+            var audioIndicativo = document.getElementById("indicativo");
+            var audioStream = document.getElementById("stream");
+            audioStream.volume = 0.2;
+            audioIndicativo.play();
+            setTimeout(function() {
+                audioStream.volume = 1.0;
+            }, 2700);
+        });
+    }
+}
+
 $(document).ready(function () {
     checkDpi();
     changeAppearence(); // en el inicio, current_track_id = 0 hasta que ocurra el intervalo; el id 0 muestra el programa actual
     checkPlayer();
     timer();
+    var audioStream = document.getElementById("stream");
+    audioStream.volume = 0.2;
+    setTimeout(function() {
+        audioStream.volume = 1.0;
+    }, 2700);
+    indicativo();
     setInterval(function () {
         checkDpi();
         $.get(API_PATH + "?method=music.current_track_id", function (a) {
@@ -159,7 +179,7 @@ $(document).ready(function () {
 });
 
 function aud_play_pause() {
-    var myAudio = document.getElementById("myTune");
+    var myAudio = document.getElementById("stream");
     if (myAudio.paused) {
         $('#player_main_ctrl').removeClass('player_play');
         $('#player_main_ctrl').addClass('player_pause');
@@ -174,7 +194,7 @@ function aud_play_pause() {
 }
 
 function stopAudio() {
-    var audio = document.getElementById("myTune");
+    var audio = document.getElementById("stream");
     audio.pause(0);
     audio.src = "";
     audio.load();
@@ -239,7 +259,7 @@ $(function () {
 
 function loadFlashPlayer() {
     if (flashPlayerActivo == 0) {
-        var myAudio = document.getElementById("myTune");
+        var myAudio = document.getElementById("stream");
         $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
         //$("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://195.55.74.208/cope/megastar.mp3&amp;autostart=true\" wmode=\"opaque\">");
         $('.player_circle').remove();
