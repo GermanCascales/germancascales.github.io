@@ -130,17 +130,17 @@
 
 		<div id="content_block" style="width: 0%; min-width: 0%;">
             <div class="main_tab_block">
-                <a href="#temazotortazo" id="openerTemazoTortazo" data-tab="temazotortazo" title="¿#Temazo o #Tortazo?">
+                <a id="openerTemazoTortazo" data-tab="temazotortazo" title="¿#Temazo o #Tortazo?">
                     <div class="tab_main" data-target="page_temazotortazo">
                         <img src="static/img/icon_temazo.png" alt="¿#Temazo o #Tortazo?" />
                     </div>
                 </a>
-                <a href="#letra" id="openerLyrics" data-tab="letra" title="Letra y vídeo">
+                <a id="openerLyrics" data-tab="letra" title="Letra y vídeo">
                     <div class="tab_main" data-target="page_letra">
                         <img src="static/img/icon_microphone.png" alt="Letra" />
                     </div>
                 </a>
-                <a href="#radio" id="openerRadio" data-tab="radio" title="Radio">
+                <a id="openerRadio" data-tab="radio" title="Radio">
                     <div class="tab_main" data-target="page_radio">
                         <img src="static/img/icon_radio_s.png" alt="Radio" />
                     </div>
@@ -150,7 +150,7 @@
 
         <div id="track_info">
             <p id="player_title"></p>
-            <p class="clear"></p>
+            <p class="clearfix"></p>
             <p id="player_artist"></p>
         </div>
 
@@ -163,9 +163,12 @@
         
         <div id="dialogRadio" title="Radio" style="max-width: 700px;">
 			<div id="track_video_i">
-				<select id="selecty" multiple size=6 width=150 style="width:150px" name="ToLB" >
+				<select id="select">
                     <option value="0">Desactivado</option>
-                    <option value="60000">1 segundo</option>
+                    <option value="2000">2 segundos</option>
+                    <option value="600000">10 minutos</option>
+                    <option value="1800000">30 minutos</option>
+                    <option value="3600000">1 hora</option>
                 </select>
 			</div>
         </div>

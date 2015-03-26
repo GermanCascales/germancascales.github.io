@@ -41,6 +41,9 @@ a{
 	background:black;
 	margin-bottom: 0;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    
 }
 /*-------------------*/
 
@@ -55,37 +58,14 @@ html, body{
 body{
 	padding: 0;
 	margin: 0; 
-	background: #352d27 -webkit-radial-gradient(circle, #4e443c, #231f1e);
+	background: #352d27;
+    background: radial-gradient(circle, #4e443c, #231f1e);
+    background: -moz-radial-gradient(circle, #4e443c, #231f1e);
+    background: -webkit-radial-gradient(circle, #4e443c, #231f1e);
+    background: -o-radial-gradient(circle, #4e443c, #231f1e);
+    background: -ms-radial-gradient(circle, #4e443c, #231f1e);
 	overflow: hidden;
 }
-
-.main_container{
-	position: relative;
-	width: 100%;
-	height: 100%;
-	min-width: 1000px;
-	min-height: 650px;
-	overflow: hidden;
-}
-
-#player{
-	position: absolute;
-	top: -3000px;
-	border: red 10px solid;
-	width: 100px;
-	height: 0px;
-
-	overflow: hidden; 
-	z-index: -2;
-}
-.post img{
-	cursor: pointer;
-}
-
-
-
-
-
 
 /*------PLAYER--------*/
 
@@ -119,7 +99,6 @@ body{
 	background: url("../img/player_play_active.png");
 
 }
-
 
 .player_pause{
 	position: absolute;
@@ -161,10 +140,6 @@ body{
 }
 /*--------------------*/
 
-
-
-
-
 #track_info {
     position: relative;
 	bottom: 18%;
@@ -196,17 +171,48 @@ body{
     display: inline-block;
 }
 
-.logo{
+.logo {
 	position: absolute;
 	right: 4%;
 	bottom: 7%;
 	width: 18%;
+    animation: bounceIn 0.6s;
+    -webkit-animation: bounceIn 0.6s;
 }
 
-.logo img{
+.logo img {
 	width: 15em;
 	display: block;
 	position: relative;
+
+    transform: rotate(0deg) scale(1) translateZ(0);
+    transition: all 0.4s cubic-bezier(.8,1.8,.75,.75);
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+@-webkit-keyframes bounceIn {
+  0% {
+    opacity: 1;
+    transform: scale(.3);
+  } 
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  } 
+
+  70% {
+    opacity: 1;
+    transform: scale(.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 #content_block{
@@ -218,25 +224,6 @@ body{
 	box-shadow: 0 0 5px rgba(0,0,0,0.5);
 	color: white;
 	height: 100%;
-}
-
-
-.content_block_ctrl_hide,
-.content_block_ctrl_show{
-	position: absolute;
-	right: -80px;
-	top: 80px;
-	width: 32px;
-	height: 32px;
-	cursor:pointer;
-}
-
-.content_block_ctrl_hide{
-	background: url("../img/move_button_left.png") no-repeat;
-}
-
-.content_block_ctrl_show{
-	background: url("../img/move_button_right.png") no-repeat;
 }
 
 /*-----VERTICAL TABS-----*/
@@ -291,15 +278,6 @@ body{
 }
 /*-----------------------------*/
 
-.page_wrapper{
-	margin: 0 15px;
-	height: -moz-calc(100% - 60px);
-	height: -webkit-calc(100% - 60px);
-	height: calc(100% - 60px);
-	overflow: hidden !important;
-	width: 92% !important;
-	position: relative;
-}
 
 /*------AUX-----*/
 .clearfix{ 
@@ -314,13 +292,6 @@ body{
 *+html .clearfix {clear: none} 
 * html .clearfix {clear: none} 
 
-.hidden{
-	display: none;
-	position: absolute;
-}
-.hidden_v{	
-	visibility: hidden;
-}
 
 .no_select,
 .player_circle,
@@ -340,20 +311,6 @@ body{
 
 /*-----------*/
 
-.player_panel_title{
-	position: relative;
-	/*left: 100px;
-	top: 30px;*/
-	color:white;
-}
-
-.player_panel_artist{
-	position: relative;
-	/*left: 100px;
-	top: 55px;*/
-	color:white;
-}
-
 .grid{
 	position: absolute;
 	left: 0;
@@ -372,12 +329,11 @@ body{
 	font-size: 14px; 
 }
 
-
-
 input{
 	font-family: "open sans";
 	font-size: 14px;
 }
+
 /*----------------------*/
 
 
@@ -409,9 +365,11 @@ input{
     opacity: 0;
 }
 
-@-webkit-keyframes spin {
-	0%  {-webkit-transform: rotate(0deg);}
-	100% {-webkit-transform: rotate(360deg);}	
+@keyframes spin {
+	0%  { -webkit-transform: rotate(0deg);
+                  transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg);
+                   transform: rotate(360deg); }
 }
 
 /*--------COUNTDOWN------*/
@@ -448,22 +406,6 @@ input{
 
 /*-----------------------*/
 
-
-#audio{
-    width: 630px;
-    height: 354px;
-    visibility:hidden;
-	z-index: 999;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -177px;
-	margin-left: -145px;
-}
-
-
-/*----------*/
-
 img{
 	border: none;
 }
@@ -492,10 +434,6 @@ h2{
 	width: 100% !important;
 	border: 0;
 	margin-top: 15px;
-}
-
-div#lyrics_content > div.ad {
-	margin-top: 0;
 }
 
 div#lyrics_block p {
@@ -562,11 +500,6 @@ div#lyrics_block p {
 	left: 0;
 	width: 100%;
 	height: 100%;
-}
-
-a.disabled {
-	pointer-events: none;
-	cursor: default;
 }
 
 .responsive {

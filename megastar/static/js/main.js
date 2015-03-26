@@ -2,13 +2,11 @@ var API_PATH = "http://apih.megastar.fm/";
 var APP_URL = "static/";
 var showTrackId;
 var dpi;
-var sleepActivo = 0;
-var sleepTime;
-
-var flashPlayerActivo = 0;
-var temazoTortazoActivo = 0;
+var sleepTimeout;
 
 var current_track_id = 0;
+var flashPlayerActivo = 0;
+var temazoTortazoActivo = 0;
 
 var colors = new Array();
 colors[1] = "http://germancascales.github.io/megastar/static/img/ic_launcher_green.png";
@@ -130,10 +128,25 @@ function checkPlayer() {
     }
 }
 
+function timer() {    
+    $("#select").change(function(){
+        var selectedValue = $("#select").val();
+        if (selectedValue != 0) {
+            sleepTimeout = setTimeout(function () {
+                aud_play_pause();
+                $("#select").val('0');
+            }, selectedValue);
+        } else {
+            clearTimeout(sleepTimeout);
+        }
+    });
+}
+
 $(document).ready(function () {
     checkDpi();
     changeAppearence(); // en el inicio, current_track_id = 0 hasta que ocurra el intervalo; el id 0 muestra el programa actual
     checkPlayer();
+    timer();
     setInterval(function () {
         checkDpi();
         $.get(API_PATH + "?method=music.current_track_id", function (a) {
@@ -142,7 +155,6 @@ $(document).ready(function () {
                 changeAppearence();
             }
         });
-        checkPlayer();
     }, 5000);
 });
 
