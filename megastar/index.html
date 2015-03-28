@@ -98,12 +98,17 @@
     <link rel="stylesheet" type="text/css" href="static/css/video/reset.css" />
     <link rel="stylesheet" type="text/css" href="static/css/jquery-ui.css">
 
-    <link rel="stylesheet" type="text/css" media="screen and (min-width:320px) and (max-width:999px)" href="static/css/mobile.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:320px) and (max-width:750px)" href="static/css/mobile.css" />
 
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="static/js/main.js"></script>
     <script type="text/javascript" src="static/js/jquery-ui.js"></script>
     <script type="text/javascript" src="static/js/jquery.countdown.min.js"></script>
+    
+
+    <script type="text/javascript" src="static/js/audio.js"></script>
+    <script type="text/javascript" src="static/js/dialog.js"></script>
+    <script type="text/javascript" src="static/js/ui.js"></script>
+        <script type="text/javascript" src="static/js/main.js"></script>
 </head>
 
 <body>
@@ -186,6 +191,9 @@
     </audio>
     
 <script type="text/javascript">
+    var audioStream = document.getElementById("stream");
+    var audioIndicativo = document.getElementById("indicativo");    
+    
     var sc_project=10323691; 
     var sc_invisible=1; 
     var sc_security="a528cdb0"; 
