@@ -27,7 +27,7 @@ function stopAudio() {
 
 function loadFlashPlayer() {
     if (flashPlayerActivo == 0) {
-        $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
+        $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://cdn.livestream.com/chromelessPlayer/examples/jwplayer/players/player.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
         //$("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"http://www.todostreaming.es/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://195.55.74.208/cope/megastar.mp3&amp;autostart=true\" wmode=\"opaque\">");
         $('.player_circle').remove();
         stopAudio();
