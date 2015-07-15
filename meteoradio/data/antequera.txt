@@ -1,0 +1,26 @@
+[
+    {
+        "frecuencia": "97.300",
+        "asignacion": "Máxima FM",
+        "pty": "Música Pop",
+        "text": "No",
+        "pi": "No",
+        "ps": "MAXIMAFM ANDLUCIA CENTRO",
+        "confirmada": "13/12/2014",
+        "ubicacion": "",
+        "pir": "",
+        "grupo": "PRISA"
+    },
+    {
+        "frecuencia": "100.400",
+        "asignacion": "Cadena SER Andalucía Centro",
+        "pty": "Noticias",
+        "text": "",
+        "pi": "",
+        "ps": "SER ANDLUCIA CENTRO ANTQUERA ARCHDONA CAMPLLOS",
+        "confirmada": "04/03/2015",
+        "ubicacion": "",
+        "pir": "",
+        "grupo": "PRISA"
+    }
+]
