@@ -1,4 +1,5 @@
-[
+{
+    "data": [
     {
         "frecuencia": "87.600",
         "asignacion": "RNE Radio 5 Todo Noticias",
@@ -768,3 +769,4 @@
         "grupo": "Ayuntamiento de Mijas"
     }
 ]
+}

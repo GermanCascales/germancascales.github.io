@@ -1,4 +1,5 @@
-[
+{
+    "data": [
     {
         "frecuencia": "97.300",
         "asignacion": "Máxima FM",
@@ -24,3 +25,4 @@
         "grupo": "PRISA"
     }
 ]
+}

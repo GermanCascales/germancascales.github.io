@@ -1,4 +1,5 @@
-[
+{
+    "data": [
     {
         "frecuencia": "87.600",
         "asignacion": "Canal Sur Radio",
@@ -935,4 +936,4 @@
         "pir": "",
         "grupo": ""
     }
-]
+]}
