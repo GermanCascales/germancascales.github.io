@@ -323,10 +323,11 @@ body{
 
 /*-------Fonts--------*/
 
-/* Defaulf font */
+/* Default font */
 body{
 	font-family: 'Open Sans', "times new roman", "arial";
-	font-size: 14px; 
+	font-size: 14px;
+    -webkit-font-smoothing: antialiased; /* se supone que con esto en Mac tendría que verse mejor la fuente */
 }
 
 input{
