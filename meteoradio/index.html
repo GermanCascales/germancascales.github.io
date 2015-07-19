@@ -1,113 +1,118 @@
 <!DOCTYPE html>
- <html>
-  <head>
-    <!-- Material Design Lite -->
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.css">
-     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue-amber.min.css" />
-     <!-- <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue_grey-blue.min.css" /> -->
+<html lang="es">
 
-    <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Material Design font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<head>
+  <meta charset="utf-8">
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.css">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue-amber.min.css" />
+  <!-- <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue_grey-blue.min.css" /> -->
 
-  </head>
-  <body>
-    <!-- Simple header with fixed tabs. -->
-    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header mdl-layout--fixed-tabs">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">DIEXISMO en la FM - Provincia de MÁLAGA</span>
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search" placeholder="buscar..."/>
-            </div>
+  <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Material Design font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+  <!-- Simple header with fixed tabs. -->
+  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header mdl-layout--fixed-tabs">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">DIEXISMO en la FM - Provincia de MÁLAGA</span>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" id="search" placeholder="buscar..." />
           </div>
         </div>
-        <!-- Tabs -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-            <a id="tab-1" class="mdl-layout__tab is-active">Málaga</a>
-            <a id="tab-2" class="mdl-layout__tab">Fuengirola</a>
-            <a id="tab-3" class="mdl-layout__tab">Almayate (Vélez-Málaga)</a>
-            <a id="tab-4" class="mdl-layout__tab">Antequera</a>
-            <a id="tab-5" class="mdl-layout__tab">Calahonda (Mijas)</a>
-            <a href="#marbella" id="tab-6" class="mdl-layout__tab">Marbella</a>
+      </div>
+      <!-- Tabs -->
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a id="tab-3" class="mdl-layout__tab">Almayate (Vélez-Málaga)</a>
+        <a id="tab-7" class="mdl-layout__tab">Alhaurín el Grande</a>
+        <a id="tab-4" class="mdl-layout__tab">Antequera</a>
+        <a id="tab-5" class="mdl-layout__tab">Calahonda (Mijas)</a>
+        <a id="tab-2" class="mdl-layout__tab">Fuengirola</a>
+        <a id="tab-1" class="mdl-layout__tab is-active">Málaga</a>
+        <a id="tab-6" class="mdl-layout__tab">Marbella</a>
 
+
+      </div>
+    </header>
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+      <header class="demo-drawer-header">
+        <span class="mdl-layout-title">MeteoRadio</span>
+        <div class="demo-avatar-dropdown">
+          <span>user@gmail.com</span>
+          <div class="mdl-layout-spacer"></div>
+          <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons">arrow_drop_down</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+            <li class="mdl-menu__item">hello@example.com</li>
+            <li class="mdl-menu__item">info@example.com</li>
+            <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+          </ul>
         </div>
       </header>
-      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-        <header class="demo-drawer-header">
-          <span class="mdl-layout-title">MeteoRadio</span>
-          <div class="demo-avatar-dropdown">
-            <span>user@gmail.com</span>
-            <div class="mdl-layout-spacer"></div>
-            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">hello@example.com</li>
-              <li class="mdl-menu__item">info@example.com</li>
-              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
-            </ul>
-          </div>
-        </header>
-        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i>Portada</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">cloud</i>Estaciones meteorológicas</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">radio</i>Diexismo</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Radioafición</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">email</i>Contacto</a>
-        </nav>
-      </div>
-      <main class="mdl-layout__content mdl-color--grey-100">
-          <div class="page-content mdl-cell mdl-cell--12-col">
-
-            <table id="myTable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th width="5%" class="mdl-data-table__cell--non-numeric"><b>Frecuencia</b></th>
-                <th  class="mdl-data-table__cell--non-numeric">Asignación</th>
-                <th class="mdl-data-table__cell--non-numeric">PTY</th>
-                <th class="mdl-data-table__cell--non-numeric">TEXT</th>
-                <th class="mdl-data-table__cell--non-numeric">PI</th>
-                <th class="mdl-data-table__cell--non-numeric">PS</th>
-                <th class="mdl-data-table__cell--non-numeric">Confirmada</th>
-                <th class="mdl-data-table__cell--non-numeric">Ubicación</th>
-                <th class="mdl-data-table__cell--non-numeric">PIR</th>
-                <th class="mdl-data-table__cell--non-numeric">Grupo</th>
-            </tr>
-        </thead>
-
-        <tfoot>
-            <tr>
-                <th class="mdl-data-table__cell--non-numeric">Frecuencia</th>
-                <th class="mdl-data-table__cell--non-numeric">Asignación</th>
-                <th class="mdl-data-table__cell--non-numeric">PTY</th>
-                <th class="mdl-data-table__cell--non-numeric">TEXT</th>
-                <th class="mdl-data-table__cell--non-numeric">PI</th>
-                <th class="mdl-data-table__cell--non-numeric">PS</th>
-                <th class="mdl-data-table__cell--non-numeric">Confirmada</th>
-                <th class="mdl-data-table__cell--non-numeric">Ubicación</th>
-                <th class="mdl-data-table__cell--non-numeric">PIR</th>
-                <th class="mdl-data-table__cell--non-numeric">Grupo</th>
-            </tr>
-        </tfoot>
-    </table>
-
-          </div>
-      </main>
+      <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i>Portada</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">cloud</i>Estaciones meteorológicas</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">radio</i>Diexismo</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Radioafición</a>
+        <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">email</i>Contacto</a>
+      </nav>
     </div>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
-    <script type="text/javascript" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <main class="mdl-layout__content mdl-color--grey-100">
+      <div class="page-content mdl-cell mdl-cell--12-col">
 
-  </body>
+        <table id="myTable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th width="5%" class="mdl-data-table__cell--non-numeric"><b>Frecuencia</b></th>
+              <th class="mdl-data-table__cell--non-numeric">Asignación</th>
+              <th class="mdl-data-table__cell--non-numeric">PTY</th>
+              <th class="mdl-data-table__cell--non-numeric">TEXT</th>
+              <th class="mdl-data-table__cell--non-numeric">PI</th>
+              <th class="mdl-data-table__cell--non-numeric">PS</th>
+              <th class="mdl-data-table__cell--non-numeric">Confirmada</th>
+              <th class="mdl-data-table__cell--non-numeric">Ubicación</th>
+              <th class="mdl-data-table__cell--non-numeric">PIR</th>
+              <th class="mdl-data-table__cell--non-numeric">Grupo</th>
+            </tr>
+          </thead>
+
+          <tfoot>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Frecuencia</th>
+              <th class="mdl-data-table__cell--non-numeric">Asignación</th>
+              <th class="mdl-data-table__cell--non-numeric">PTY</th>
+              <th class="mdl-data-table__cell--non-numeric">TEXT</th>
+              <th class="mdl-data-table__cell--non-numeric">PI</th>
+              <th class="mdl-data-table__cell--non-numeric">PS</th>
+              <th class="mdl-data-table__cell--non-numeric">Confirmada</th>
+              <th class="mdl-data-table__cell--non-numeric">Ubicación</th>
+              <th class="mdl-data-table__cell--non-numeric">PIR</th>
+              <th class="mdl-data-table__cell--non-numeric">Grupo</th>
+            </tr>
+          </tfoot>
+        </table>
+
+      </div>
+    </main>
+  </div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+  <script type="text/javascript" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+
 </html>
