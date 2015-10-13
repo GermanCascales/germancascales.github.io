@@ -118,10 +118,10 @@ function uiPymedia() {
             console.log("dpi en uipymedia" + dpi);
             $("#background-image").css("background-image", "url(static/img/fondos_pc/" + data.fondosPC[aleatorio].file + ")");
         } else {
-            var aleatorio = Math.floor(Math.random() * a.fondosMovil.length);
+            var aleatorio = Math.floor(Math.random() * data.fondosMovil.length);
             console.log("dpi en uipymedia" + dpi);
             $("#track_info").hide();
-            $("#background-image").css("background-image", "url(static/img/fondos_movil/" + a.fondosMovil[aleatorio].file + ")");
+            $("#background-image").css("background-image", "url(static/img/fondos_movil/" + data.fondosMovil[aleatorio].file + ")");
         }
     });
 }
