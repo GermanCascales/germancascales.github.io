@@ -108,12 +108,15 @@ function changeAppearence() {
 }
 
 function uiPymedia() {
-    $.getJSON("../json/fondos.json", function (a) {
-        if ("big" == dpi) {
-            var aleatorio = Math.floor(Math.random() * a.fondosPC.length);
+    $("#track_info").hide();
+    console.log("estoy al inicio de la funcion");
+
+    $.getJSON("http://germancascales.github.io/megastarweb/static/json/fondos.json", function (data) {
+        if (dpi == "big") {
+            console.log("estoy aqui");
+            var aleatorio = Math.floor(Math.random() * data.fondosPC.length);
             console.log("dpi en uipymedia" + dpi);
-            $("#track_info").hide();
-            $("#background-image").css("background-image", "url(static/img/fondos_pc/" + a.fondosPC[aleatorio].file + ")");
+            $("#background-image").css("background-image", "url(static/img/fondos_pc/" + data.fondosPC[aleatorio].file + ")");
         } else {
             var aleatorio = Math.floor(Math.random() * a.fondosMovil.length);
             console.log("dpi en uipymedia" + dpi);

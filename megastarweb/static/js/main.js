@@ -6,7 +6,7 @@ $(document).ready(function () {
     // changeAppearence(); // en el inicio, current_track_id = 0 hasta que ocurra el intervalo; el id 0 muestra el programa actual
     checkPlayer();
     timer();
-    
+    uiPymedia();
 
     audioStream.volume = 0.2;
     setTimeout(function() {
@@ -20,7 +20,7 @@ $(document).ready(function () {
         $.get(API_PATH + "?method=music.current_track_id", function (a) {
             console.log("current_track_id" + current_track_id);
             console.log("id_track" + a.id_track);
-            //if (a.id_track !== current_track_id) {
+            if (a.id_track !== current_track_id) {
                 current_track_id = a.id_track;
                 // current_track_id = 0;
                 if (0 == current_track_id) {
@@ -28,7 +28,7 @@ $(document).ready(function () {
                 } else {
                     changeAppearence();
                 }
-            //}
+            }
         });
     }, 5000);
 });
