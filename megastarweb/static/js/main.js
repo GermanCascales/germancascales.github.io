@@ -20,15 +20,15 @@ $(document).ready(function () {
         $.get(API_PATH + "?method=music.current_track_id", function (a) {
             console.log("current_track_id" + current_track_id);
             console.log("id_track" + a.id_track);
-            if (a.id_track !== current_track_id) {
-                // current_track_id = a.id_track;
-                current_track_id = 0;
+            //if (a.id_track !== current_track_id) {
+                current_track_id = a.id_track;
+                // current_track_id = 0;
                 if (0 == current_track_id) {
                     uiPymedia();
                 } else {
                     changeAppearence();
                 }
-            }
+            //}
         });
     }, 5000);
 });
