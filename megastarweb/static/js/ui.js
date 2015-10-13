@@ -1,6 +1,5 @@
 var showTrackId;
 var dpi;
-
 var colors = new Array();
 colors[1] = "http://germancascales.github.io/megastar/static/img/ic_launcher_green.png";
 colors[2] = "http://germancascales.github.io/megastar/static/img/ic_launcher_yellow.png";
@@ -8,6 +7,14 @@ colors[3] = "http://germancascales.github.io/megastar/static/img/ic_launcher_blu
 colors[4] = "http://germancascales.github.io/megastar/static/img/ic_launcher_black.png";
 colors[5] = "http://germancascales.github.io/megastar/static/img/ic_launcher_red.png";
 colors[6] = "http://germancascales.github.io/megastar/static/img/ic_launcher_pink.png";
+
+var fondos = new Array();
+fondos[1] = "http://germancascales.github.io/megastar/static/img/ic_launcher_green.png";
+fondos[2] = "http://germancascales.github.io/megastar/static/img/ic_launcher_yellow.png";
+fondos[3] = "http://germancascales.github.io/megastar/static/img/ic_launcher_blue.png";
+fondos[4] = "http://germancascales.github.io/megastar/static/img/ic_launcher_black.png";
+fondos[5] = "http://germancascales.github.io/megastar/static/img/ic_launcher_red.png";
+fondos[6] = "http://germancascales.github.io/megastar/static/img/ic_launcher_pink.png";
 
 function capitalize(string) {
     var words = string.split(" ");
@@ -30,12 +37,7 @@ function changeAppearence() {
     showTrackId = current_track_id;
 
 	$.getJSON(API_PATH + "?method=music.track_info&id=" + showTrackId + "&type=" + dpi, function (a) {
-        if(0 == showTrackId){
-                $("#player_artist").html("MegaStar");
-                $("#player_title").html("Costa del Sol 97.1");
-            }else{
-                
-            }
+        console.log(showTrackId);
 
         $("#track_info").show();
         
@@ -101,6 +103,22 @@ function changeAppearence() {
                     }, 5000);
                 }
             });
+        }
+    });
+}
+
+function uiPymedia() {
+    $.getJSON("../json/fondos.json", function (a) {
+        if ("big" == dpi) {
+            var aleatorio = Math.floor(Math.random() * a.fondosPC.length);
+            console.log("dpi en uipymedia" + dpi);
+            $("#track_info").hide();
+            $("#background-image").css("background-image", "url(static/img/fondos_pc/" + a.fondosPC[aleatorio].file + ")");
+        } else {
+            var aleatorio = Math.floor(Math.random() * a.fondosMovil.length);
+            console.log("dpi en uipymedia" + dpi);
+            $("#track_info").hide();
+            $("#background-image").css("background-image", "url(static/img/fondos_movil/" + a.fondosMovil[aleatorio].file + ")");
         }
     });
 }
