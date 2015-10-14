@@ -18,8 +18,6 @@ $(function () {
         autoOpen: false,
         modal: true,
         dialogClass: "no-close",
-        width: $(window).width() * 0.32,
-        height: $(window).height() * 0.7,
         draggable: false,
         resizable: false,
         show: {
@@ -38,6 +36,11 @@ $(function () {
     
     $("#openerRadio").click(function () {
         $("#dialogRadio").dialog("open");
+        //if (dpi == "big") {
+            $("#publiPymedia").html("<img class= 'responsive' src='static/img/PC_CONTACTO_PUBLI.jpg' />");
+        //} else {
+         //   $("#publiPymedia").html("<img src='static/img/MOV_CONTACTO_PUBLI.jpg' />");
+       // }
     });
     
     $("#openerTemazoTortazo").click(function () {
