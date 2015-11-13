@@ -1,11 +1,11 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
-<head>
+<head>    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-            
+    
     <meta name="keywords" content="radio, solo temazos, megastar, fm, megastarfm, costa del sol, benalmadena, malaga, spain, chr, hits, reelworld, directo, live" />
     <meta name="description" content="Escucha ahora la nueva MegaStarFM – SOLO TEMAZOS Costa del Sol 97.1 FM. Listen now to MegaStar radio station in Costa del Sol 97.1 FM!" />
 
@@ -18,17 +18,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="MegaStar 97.1">
-            
+    
+
     <link rel="icon" sizes="175x175" href="static/img/icon175x175.png">
     <link rel="icon" type="image/png" href="static/img/favicon.png" />
-    <link rel="icon" type="image/png" href="http://guiadebenalmadena.com/megastar/static/img/favicon.png" />
-
+    
     <title>MegaStar Costa del Sol ‒ 97.1 FM</title>
-    <meta name="url" content="http://costadelsol.megastar.fm">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
-
+   
     <!-- iPad retina icon -->
     <link href="static/img/apple-touch-icon-precomposed-152x152.png" sizes="152x152" rel="apple-touch-icon-precomposed">
 
@@ -96,18 +92,103 @@
     <!-- iPhone < 5 non-retina startup image -->
     <link href="static/img/apple-touch-startup-image-320x460.png" media="(device-width: 320px) and (device-height: 480px)
                  and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    
+
+    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/video/reset.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/jquery-ui.css">
+
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="static/js/jquery.countdown.min.js"></script>
+    
+
+    <script type="text/javascript" src="static/js/audio.js"></script>
+    <script type="text/javascript" src="static/js/dialog.js"></script>
+    <script type="text/javascript" src="static/js/ui.js"></script>
+        <script type="text/javascript" src="static/js/main.js"></script>
 </head>
+
 <body>
-    <script type="text/javascript">
-       if ((navigator.userAgent.indexOf('Android') != -1)) {
-            document.write('<iframe src="index.html" onload="this.width=screen.width;this.height=screen.height;" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; border:none; margin:0; padding:0; overflow:hidden;">Your browser does not support iframes</iframe>');
-        } else if (navigator.userAgent.match(/iPhone|iPod/i)) {
-                document.write('<iframe src="index.html" onload="this.width=screen.width;this.height=screen.height;" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; border:none; margin:0; padding:0; overflow:hidden;">Your browser does not support iframes</iframe>');
-        } else {
-                document.write('<iframe src="index.html" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">Your browser does not support iframes</iframe>');
-        }
-    </script>
+    <!-- <div id="countdown">
+    </div> -->
+	<div class="container_web">
+        <div id="background-container">
+            <figure id="background-image" ></figure>
+            <div class="grid" id="background_grid"></div>
+            <img id="background-image2" />
+		</div>
+
+		<div id="logo" class="logo" onclick="loadFlashPlayer();">
+            <img class="responsive" src="static/img/logo_megastar.png">
+            <div id="flashPlayer"></div>
+            <audio id="indicativo" autoplay="autoplay">
+                <source src="static/audio/megastar.mp3">
+            </audio>
+        </div>
+        
+		<div class="player_circle">
+			<div id="player_spinner" class="play"></div>
+			<div id="player_vol_minus" onclick="document.getElementById('myTune').volume -= 0.1"></div>
+			<div id="player_vol_plus" onclick="document.getElementById('myTune').volume += 0.1"></div>
+			<button id="player_main_ctrl" class="player_pause" style="visibility: inherit;" onclick="aud_play_pause()"></button>
+		</div>
+
+		<div id="content_block" style="width: 0%; min-width: 0%;">
+            <div class="main_tab_block">
+                <a id="openerLyrics" data-tab="letra" title="Letra y vídeo">
+                    <div class="tab_main" data-target="page_letra">
+                        <img src="static/img/icon_microphone.png" alt="Letra" />
+                    </div>
+                </a>
+                <a href="http://megaguasap.es" target="_blank" data-tab="facebook" title="MegaGuasap">
+                    <div class="tab_main" data-target="page_facebook">
+                        <img src="static/img/icon_facebook.png" alt="MegaGuasap" />
+                    </div>
+                </a>
+                <a id="openerRadio" data-tab="radio" title="Radio">
+                    <div class="tab_main" data-target="page_radio">
+                        <img src="static/img/icon_radio_s.png" alt="Radio" />
+                    </div>
+                </a>
+            </div>
+		</div>
+
+        <div id="track_info">
+            <p id="player_title">MegaStarFM 97.1</p>
+            <p class="clearfix"></p>
+            <p id="player_artist">Costa del Sol</p>
+        </div>
+
+        <div id="dialog" title="Lyrics" style="max-width: 700px;">
+			<div id="track_video_i">
+				<div id="track_video_yt"></div>
+			</div>            
+            <p id="lyrics_block"></p>
+        </div>
+        
+        <div id="dialogRadio">
+            <img class="responsive" src="static/img/PC_CONTACTO_PUBLI.jpg" />
+        </div>
+    </div>
+
+    <audio id="stream" autoplay="autoplay">
+        <source src="http://91.121.68.52:8012/;stream.nsv">
+    </audio>
+    
+<script type="text/javascript">
+    var audioStream = document.getElementById("stream");
+    var audioIndicativo = document.getElementById("indicativo");
+
+    var sc_project=10654030; 
+    var sc_invisible=1; 
+    var sc_security="4ab56bf3"; 
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+</script>
 </body>
 </html>
-
-    

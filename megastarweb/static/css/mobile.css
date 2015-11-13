@@ -1,36 +1,36 @@
 #track_info {
-    text-align: center;
-    margin-top: -4%;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center !important; 
+    margin-top: -4% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     /*bottom: 20%;
     left: 10%;*/
 }
  
 #track_info p:first-of-type {
-    white-space: normal;
-    display: inline-block;
+    white-space: normal !important;
+    display: inline-block !important;
 }
     
 #track_info p:last-of-type {        
-    display: inline-block;
-    white-space: normal;
+    display: inline-block !important;
+    white-space: normal !important;
 }
 
 #background-image {
-    max-width: 100%;
-    background-position: 50% 20%;
+    max-width: 100% !important;
+    background-position: 50% 20% !important;
 }
     
 #countdown {
-    display: none;
+    display: none !important;
 }
     
 .logo {
-    bottom: 1%;
-    width: 22%;
+    bottom: 1% !important;
+    width: 22% !important;
 }
 
 #openerTemazoTortazo {
-    display: none;
+    display: none !important;
 }
