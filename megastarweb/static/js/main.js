@@ -31,18 +31,4 @@ $(document).ready(function () {
             }
         });
     }, 5000);
-
-
-
-////// inisio
-
-$(document).on("pagecreate",function(event){
-  $(window).on("orientationchange",function(){
-    alert("The orientation has changed!");
-  });                     
-});
-
-  // finnnnnnnn
-
-
 });
