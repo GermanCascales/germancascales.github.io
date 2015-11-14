@@ -5,7 +5,6 @@ $(document).ready(function () {
     checkDpi();
     // changeAppearence(); // en el inicio, current_track_id = 0 hasta que ocurra el intervalo; el id 0 muestra el programa actual
     audioInit();
-    checkPlayer();
     uiPymedia();
 
     audioStream.volume = 0.2;
