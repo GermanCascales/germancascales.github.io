@@ -37,7 +37,7 @@ function changeAppearence() {
     showTrackId = current_track_id;
 
 	$.getJSON(API_PATH + "?method=music.track_info&id=" + showTrackId + "&type=" + dpi, function (a) {
-        console.log(showTrackId);
+        // console.log(showTrackId);
 
         $("#track_info").show();
         
@@ -109,17 +109,13 @@ function changeAppearence() {
 
 function uiPymedia() {
     $("#track_info").hide();
-    console.log("estoy al inicio de la funcion");
 
     $.getJSON("http://germancascales.github.io/megastarweb/static/json/fondos.json", function (data) {
         if (dpi == "big") {
-            console.log("estoy aqui");
             var aleatorio = Math.floor(Math.random() * data.fondosPC.length);
-            console.log("dpi en uipymedia" + dpi);
             $("#background-image").css("background-image", "url(static/img/fondos_pc/" + data.fondosPC[aleatorio].file + ")");
         } else {
             var aleatorio = Math.floor(Math.random() * data.fondosMovil.length);
-            console.log("dpi en uipymedia" + dpi);
             $("#track_info").hide();
             $("#background-image").css("background-image", "url(static/img/fondos_movil/" + data.fondosMovil[aleatorio].file + ")");
         }
@@ -127,7 +123,7 @@ function uiPymedia() {
 }
 
 function checkDpi() {
-    if ($(window).width() < 1024) {
+    if ($(window).width() < 450) {
         dpi = "xhdpi";
     } else {
         dpi = "big";

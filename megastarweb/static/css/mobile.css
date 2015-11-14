@@ -10,11 +10,17 @@
 #track_info p:first-of-type {
     white-space: normal !important;
     display: inline-block !important;
+    font-size: 1.254rem;
 }
     
 #track_info p:last-of-type {        
     display: inline-block !important;
-    white-space: normal !important;
+    /* white-space: normal !important; */
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 93%;
+    text-overflow: ellipsis;
+    font-size: 1.625rem;
 }
 
 #background-image {
@@ -33,4 +39,12 @@
 
 #openerTemazoTortazo {
     display: none !important;
+}
+
+.grid {
+    background: none;
+}
+
+.player_circle {
+    zoom: 0.75;
 }
