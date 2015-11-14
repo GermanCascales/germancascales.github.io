@@ -23,6 +23,7 @@ function audioInit() {
         audio.src = src;
     } catch(e) {
         console.log('[AUTOPLAY-ERROR]', e);
+        $('#player_main_ctrl').addClass('player_play');
     }
 }
 

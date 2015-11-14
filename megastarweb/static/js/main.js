@@ -34,7 +34,7 @@ $(document).ready(function () {
 
 
 
-////// inisio
+// inicio
 
 /* if (window.matchMedia("(orientation: portrait)").matches) {
    alert("portraittt")
