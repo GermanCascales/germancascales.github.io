@@ -34,6 +34,7 @@ function capitalize(string) {
 }
 
 function changeAppearence() {
+    checkDpi();
     showTrackId = current_track_id;
 
 	$.getJSON(API_PATH + "?method=music.track_info&id=" + showTrackId + "&type=" + dpi, function (a) {

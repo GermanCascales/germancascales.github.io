@@ -31,4 +31,33 @@ $(document).ready(function () {
             }
         });
     }, 5000);
+
+
+
+////// inisio
+
+/* if (window.matchMedia("(orientation: portrait)").matches) {
+   alert("portraittt")
+}
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+  alert("landscapee.")
+}
+
+*/
+
+var test = window.matchMedia("(orientation: portrait)");
+test.addListener(function(m) {
+  if(m.matches) {
+    // Changed to portrait
+    changeAppearence();
+  }else {
+    // Changed to landscape
+    changeAppearence();
+  }
+});
+
+  // finnnnnnnn
+
+
 });
