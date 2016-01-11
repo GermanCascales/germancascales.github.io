@@ -14,8 +14,8 @@
             <url>http://pub1.cope.es/2/www.megastar.fm/playerstream/6549400457@x31</url>
         </video>
         <audio type="content">
-            <url>http://91.121.68.52:8012/listen.pls</url>
-            <urlHtml>http://91.121.68.52:8012/;</urlHtml>
+            <url>http://91.121.68.52:8012/;stream.mp3</url>
+            <urlHtml>http://91.121.68.52:8012/;stream.mp3</urlHtml>
             <urlMobile>http://91.121.68.52:8012/;stream.mp3</urlMobile>
         </audio>
     </contents>
