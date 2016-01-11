@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<live>
+    <id>D</id>
+    <url_page>http://www.megastar.fm</url_page>
+    <title>Sólo Temazos</title>
+    <introduction>Estás escuchando MegaStarFM en directo!</introduction>
+    <description></description>
+    <stats>
+        <c3>cadena100.es</c3>
+        <c4>CADENA 100 Audio</c4>
+    </stats>
+    <contents type="audio">
+        <video type="preroll">
+            <url>http://pub1.cope.es/2/www.megastar.fm/playerstream/6549400457@x31</url>
+        </video>
+        <audio type="content">
+            <url>http://megastar.cope.stream.flumotion.com/cope/megastar.mp3.m3u</url>
+            <urlHtml>http://megastar.cope.stream.flumotion.com/cope/megastar.aac.m3u</urlHtml>
+            <urlMobile>http://megastar.cope.stream.flumotion.com/cope/megastar-low.mp3.m3u</urlMobile>
+        </audio>
+    </contents>
+    <services>
+        <embed><![CDATA[<iframe src="http://www.megastar.fm/"></iframe>]]></embed>
+    </services>
+</live>
