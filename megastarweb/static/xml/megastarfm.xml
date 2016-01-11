@@ -15,8 +15,8 @@
         </video>
         <audio type="content">
             <url>http://91.121.68.52:8012/listen.pls</url>
-            <!-- <urlHtml>http://megastar.cope.stream.flumotion.com/cope/megastar.aac.m3u</urlHtml>
-            <urlMobile>http://megastar.cope.stream.flumotion.com/cope/megastar-low.mp3.m3u</urlMobile> -->
+            <urlHtml>http://91.121.68.52:8012/;</urlHtml>
+            <urlMobile>http://91.121.68.52:8012/;stream.mp3</urlMobile>
         </audio>
     </contents>
     <services>
