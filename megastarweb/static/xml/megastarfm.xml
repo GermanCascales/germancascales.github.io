@@ -14,7 +14,7 @@
             <url>http://pub1.cope.es/2/www.megastar.fm/playerstream/6549400457@x31</url>
         </video>
         <audio type="content">
-            <url>http://91.121.68.52:8012/;stream.nsv</url>
+            <url>http://91.121.68.52:8012/listen.pls</url>
             <!-- <urlHtml>http://megastar.cope.stream.flumotion.com/cope/megastar.aac.m3u</urlHtml>
             <urlMobile>http://megastar.cope.stream.flumotion.com/cope/megastar-low.mp3.m3u</urlMobile> -->
         </audio>
