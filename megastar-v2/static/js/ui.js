@@ -37,7 +37,7 @@ function changeAppearence() {
         if (a.title !== null) {
             $("#player_title").html(a.title);
             $("#player_title").show();
-            $("#dialog").dialog("option", "title", a.title + ' ‒ ' + capitalize(a.artist));
+            $("#dialog").dialog("option", "title", a.title + ' ‒ ' + a.artistReal);
         } else {
             $("#player_title").hide();
         }
