@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <live>
     <id>D</id>
-    <url_page>http://www.megastar.fm</url_page>
+    <url_page>http://germancascales.github.io</url_page>
     <title>Sólo Temazos</title>
     <introduction>Estás escuchando MegaStarFM en directo!</introduction>
     <description></description>
@@ -15,7 +15,4 @@
             <urlMobile>http://91.121.68.52:8012/;stream.mp3</urlMobile>
         </audio>
     </contents>
-    <services>
-        <embed><![CDATA[<iframe src="http://www.megastar.fm/"></iframe>]]></embed>
-    </services>
 </live>
