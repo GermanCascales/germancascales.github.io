@@ -180,7 +180,7 @@ var App = function () {
 		}
 
 		_s.forEach(function(entry) {
-			newURL += "/" + entry;
+			newURL += "#" + entry;
 		});
 
 		history.pushState(null, null, newURL);
