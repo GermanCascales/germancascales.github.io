@@ -1,3 +1,21 @@
+<script>
+var API_PATH = "http://apih.megastar.fm/";
+var APP_URL = "static/";
+
+var current_track_id = 0;
+
+$(document).ready(function () {
+	$.get(API_PATH + "?method=music.current_track_id", function (a) {
+                current_track_id = a.id_track;
+    });
+
+    $.getJSON(API_PATH + "?method=music.track_info&id=" + current_track_id, function (a) {
+    	$("#lyrics_block").html(a.lyrics);
+    });
+});
+</script>
+
+
 <div class="navbar  ">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -21,16 +39,7 @@
 				</div>
 			</div>
 				<div class="row">
-			<div class="col-md-12 text-center lyrics">
-															<div class="row mb-10">
-							<div id="ad" class="col-md-12 text-center ad">
-																<ins class="adsbygoogle"
-									 style="display:inline-block;width:300px;height:250px"
-									 data-ad-client="ca-pub-4016423084252078"
-									 data-ad-slot="6119393051"></ins>
-							</div>
-						</div>
-					
+			<div id="lyrics_block" class="col-md-12 text-center lyrics">
 					<p>All the times that you rain on my parade <br />And all the clubs you get in using my name <br />You think you broke my heart <br />Ohhh girl for goodness sake <br />You think I'm crying <br />Oh my ohhh, well no I ain't!</p><br />
 <p>And I didn't wanna write a song <br />'Cause I didn't want anyone thinking I still care, I don't <br />But, you still hit my phone up <br />And baby I be moving on</p><br />
 <p>And I think you should be somethin' I don't wanna hold back <br />Maybe you should know that <br />My mama don't like you and she like's everyone <br />And I don't like to admit that I was wrong</p><br />
