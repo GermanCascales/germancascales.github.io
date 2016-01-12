@@ -7,7 +7,7 @@
     <description></description>
     <contents type="audio">
         <video type="preroll">
-            <url>http://guiadebenalmadena.com/megastar/static/audio/megastar.mp3</url>
+            <url>http://germancascales.github.io/megastar-v2/static/audio/megastar.mp3</url>
         </video>
         <audio type="content">
             <url>http://91.121.68.52:8012/;stream.mp3</url>
