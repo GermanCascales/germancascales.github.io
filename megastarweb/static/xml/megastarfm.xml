@@ -6,9 +6,9 @@
     <introduction>Estás escuchando MegaStarFM en directo!</introduction>
     <description></description>
     <contents type="audio">
-        <video type="preroll">
+        <audio type="preroll">
             <url>http://germancascales.github.io/megastar-v2/static/audio/megastar.mp3</url>
-        </video>
+        </audio>
         <audio type="content">
             <url>http://91.121.68.52:8012/;stream.mp3</url>
             <urlHtml>http://91.121.68.52:8012/;stream.mp3</urlHtml>
