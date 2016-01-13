@@ -1,0 +1,18 @@
+{
+	"fondosPC": [
+		{"file": "PC_BENALMADENA_1.jpg"},
+		{"file": "PC_BENALMADENA_2.jpg"},
+		{"file": "PC_BENALMADENA_3.jpg"},
+		{"file": "PC_MALAGA_1.jpg"},
+		{"file": "PC_MALAGA_2.jpg"},
+		{"file": "PC_MALAGA_3.jpg"}
+	],
+
+	"fondosMovil": [
+		{"file": "MOV_BENALMADENA_1.jpg"},
+		{"file": "MOV_BENALMADENA_2.jpg"},
+		{"file": "MOV_MALAGA_1.jpg"}, 
+		{"file": "MOV_MALAGA_2.jpg"},
+		{"file": "MOV_MALAGA_3.jpg"}
+	]
+}

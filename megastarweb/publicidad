@@ -16,9 +16,84 @@
 
 <div class="container-fluid ">
 		<div class="row mb-20">
-		<div class="col-md-12">
-			<img src="http://guiadebenalmadena.com/megastar/static/img/PC_CONTACTO_PUBLI.jpg" class="img-responsive" style="margin: 0px auto;">
+			<div class="col-md-12">
+				<img src="http://guiadebenalmadena.com/megastar/static/img/PC_CONTACTO_PUBLI.jpg" class="img-responsive" style="margin: 0px auto;">
+			</div>
 		</div>
-	</div>
-			
+		<div class="row mb-20 gallery">
+				<div class="col-md-12">
+					<div class="photo-list-view">
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/b3c9b6efad2bc9e2405404f59fcbbcf981c97044.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/b3c9b6efad2bc9e2405404f59fcbbcf981c97044.jpeg" alt=""><div id="caption">test</div>
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/b3c9b6efad2bc9e2405404f59fcbbcf981c97044.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/b3c9b6efad2bc9e2405404f59fcbbcf981c97044.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/198864371bf4ae20dde5886e1ce89448db0fcc08.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/198864371bf4ae20dde5886e1ce89448db0fcc08.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/83a1505ab642510fb7a57d0e8d085e056843e51f.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/83a1505ab642510fb7a57d0e8d085e056843e51f.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/e7e5931e8f3dfdb8f8ca3bd7525958849e3841b0.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/e7e5931e8f3dfdb8f8ca3bd7525958849e3841b0.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/94080e81480c9d2492644a49782bdd69ba247a1d.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/94080e81480c9d2492644a49782bdd69ba247a1d.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/37edd974b27dceb4c62e3ab970b2f7aafaa2a257.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/37edd974b27dceb4c62e3ab970b2f7aafaa2a257.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/c086f4902f3aba0ff0008e515b56eee3277d3fc2.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/c086f4902f3aba0ff0008e515b56eee3277d3fc2.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/216817c1040c896aa594dd5a4364e4eeb2d26a03.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/216817c1040c896aa594dd5a4364e4eeb2d26a03.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/3f91572d3537f7ca87396d95a5e49a41a93b7a32.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/3f91572d3537f7ca87396d95a5e49a41a93b7a32.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/0e6e7380a5008d8aff345e2ccc7739017ec30a7f.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/0e6e7380a5008d8aff345e2ccc7739017ec30a7f.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/5edc0d0d1e77a8ef2eb7d625cc572908385a035c.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/5edc0d0d1e77a8ef2eb7d625cc572908385a035c.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/03e1f3914c553dba2f2f1b2d5d407c23d5b1857e.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/03e1f3914c553dba2f2f1b2d5d407c23d5b1857e.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/db7e3c5b25a7df2523d54a653d502e40973c3383.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/db7e3c5b25a7df2523d54a653d502e40973c3383.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/ed880472a13887dd19b4cef9799277d8a71bec66.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/ed880472a13887dd19b4cef9799277d8a71bec66.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/bd7af4e232f142d4e454ba75a107515f68241ff8.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/bd7af4e232f142d4e454ba75a107515f68241ff8.jpeg" alt="">
+							</a>
+													<a href="http://files.megastar.fm/media/events/malaga-20150623/c2be74da19678f01a1165267767adb5d22324437.jpeg">
+								<img src="http://files.megastar.fm/media/events/malaga-20150623/thumb/c2be74da19678f01a1165267767adb5d22324437.jpeg" alt="">
+							</a>
+											</div>
+				</div>
+			</div>
+		
+		<script>
+			$(document).ready(function() {
+				$(".photo-list-view").justifiedGallery({
+					rowHeight : 150,
+					fixedHeight: true,
+					lastRow : 'justify',
+					margins : 3,
+					randomize: true,
+					captions: true
+				}).on('jg.complete', function () {
+					$('.gallery a').swipebox({
+						useCSS : true,
+						hideBarsDelay : 0
+					});
+				});
+			});
+		</script>
+
 	</div>

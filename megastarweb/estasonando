@@ -1,3 +1,21 @@
+<style>
+.video_yt {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.myvideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+iframe.myvideo {
+	border: 0;
+}
+</style>
 <script>
 var API_PATH = "http://apih.megastar.fm/";
 var APP_URL = "static/";
@@ -11,8 +29,15 @@ $(document).ready(function () {
     $.getJSON(API_PATH + "?method=music.track_info&id=" + current_track_id, function (a) {
     	$("#lyrics_block").html(a.lyrics);
 
-    	$("#track_video_yt").html("<div id=\"track_video_yt\" data-video=\"" + a.video_url + "\"></div>");
-
+    	// $("#track_video_yt").html("<div id=\"track_video_yt\" data-video=\"" + a.video_url + "\"></div>");
+    	if (a.video_url && a.video_url !== "null" && a.video_url !== "") {
+            var d = a.video_url;
+            $("#track_video_i").show();
+            // alert("videoo " + d);
+            $("#track_video_yyt").html("<iframe src=\"http://www.youtube.com/embed/" + d + "\" class=\"myvideo\"></iframe>");
+        } else {
+            $("#track_video_i").hide();
+        }
     });
 
 
@@ -33,14 +58,14 @@ $(document).ready(function () {
 	</div>
 </div>
 
-<div class="subnavbar">
-	</div>
+<!-- <div class="subnavbar">
+	</div> -->
 
 <div class="container-fluid listening" style="max-height: 100% !important;">
 		
 					<div class="row mb-20">
 				<div class="col-md-12 video_yt">
-					<div id="track_video_yt"></div>
+					<div id="track_video_yyt"></div>
 				</div>
 			</div>
 				<div class="row">

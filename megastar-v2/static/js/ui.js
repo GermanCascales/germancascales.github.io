@@ -103,7 +103,7 @@ function changeAppearence() {
 function uiPymedia() {
     $("#track_info").hide();
 
-    $.getJSON("http://germancascales.github.io/megastarweb/static/json/fondos.json", function (data) {
+    $.getJSON("http://germancascales.github.io/megastar-v2/static/json/fondos.json", function (data) {
         if (dpi == "big") {
             var aleatorio = Math.floor(Math.random() * data.fondosPC.length);
             $("#background-image").css("background-image", "url(static/img/fondos_pc/" + data.fondosPC[aleatorio].file + ")");

@@ -59,17 +59,15 @@
 	<script type="text/javascript" src="static/js/jwplayer.js"></script>
 	<script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
 
-	<script src="http://files.megastar.fm/js/desktop/v3/assets.min.js" type="text/javascript"></script>
+	<script src="static/js/assets.min.js" type="text/javascript"></script>
 	
-	<script type="text/javascript" src="http://files.megastar.fm/static/plugins/player/streamsense.min.js"></script>
-	<script type="text/javascript" src="http://files.megastar.fm/static/plugins/player/id3-minimized.js"></script>
-	<script type="text/javascript" src="http://files.megastar.fm/static/plugins/player/player.flumotion.min.js"></script>
+	<script type="text/javascript" src="static/plugins/player/id3-minimized.js"></script>
+	<script type="text/javascript" src="static/plugins/player/player.flumotion.js"></script>
 
 	<script src="static/js/app.js" type="text/javascript"></script>
 </head>
 
 <body>
-<div id="fb-root"></div>
 	<div class="wrapper">
 
 		<div class="data ">
@@ -129,9 +127,9 @@
 				</div>
 			</div>
 
-			<div class="track_info" data-initial-track="R. City &amp; Chloe Angelides - Make Up">
-				<span class="player_title red ">Make Up</span>
-				<span class="player_artist red">R. CITY &amp; CHLOE ANGELIDES</span>
+			<div class="track_info" data-initial-track="0">
+				<span class="player_title red ">MegaStarFM</span>
+				<span class="player_artist red">Costa del Sol 97.1</span>
 			</div>
 
 		</div>
@@ -148,6 +146,22 @@
 	</script>
 
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1534673116826045',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 </body>
 </html>

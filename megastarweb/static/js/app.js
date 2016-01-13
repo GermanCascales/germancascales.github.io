@@ -2,6 +2,7 @@ var tabActive = "";
 var players = [];
 var navBarStatus = Cookies.get('navBar');
 var contentStatus = "show";
+var current_track_id;
 
 var App = function () {
 
@@ -277,9 +278,9 @@ var App = function () {
 		},
 
 		refreshContent: function () {
-			newURL = "http://germancascales.github.io/estasonando";
+			newURL = "http://germancascales.github.io/megastarweb/estasonando";
 			// history.pushState(null, null, newURL);
-			handleContent(document.location.pathname);
+			handleContent("estasonando");
 		},
 
 		adjustIframe: function() {
@@ -438,12 +439,10 @@ var Player = function () {
 	styles[5] = "red";
 	styles[6] = "pink";
 
-	var lastTitle = "";
+	var lastID;
 
 	function getTrackInfo(){
-
-		$.getJSON("http://apih.megastar.fm/?method=music.track_info_bytile&str=" + encodeURIComponent(lastTitle) + "&type=big", function(a) {
-
+		$.getJSON("http://apih.megastar.fm/?method=music.track_info&id=" + lastID + "&type=big", function(a) {
 			var b = Math.floor(Math.random() * a.images.length);
 			actualColor =  a.images[b].color;
 
@@ -514,7 +513,7 @@ var Player = function () {
 	return {
 		init: function (_c) {
 
-			lastTitle = $("div.track_info").attr("data-initial-track");
+			lastID = $("div.track_info").attr("data-initial-track");
 			$("div.track_info").removeAttr("data-initial-track");
 
 			actualColor = _c;
@@ -611,9 +610,22 @@ var Player = function () {
 
 		checkTitle: function (data) {
 
-			if (lastTitle != data){
-				lastTitle = data;
-				getTrackInfo();
+			if (lastID != data){
+				lastID = data;
+				if (data == 0) {
+					$.getJSON("static/json/fondos.json", function (data) {
+				        // if (dpi == "big") {
+				            var aleatorio = Math.floor(Math.random() * data.fondosPC.length);
+				            $(".player").css("background-image", "url(static/img/fondos_pc/" + data.fondosPC[aleatorio].file + ")");
+				        /* } else {
+				            var aleatorio = Math.floor(Math.random() * data.fondosMovil.length);
+				            $("#track_info").hide();
+				            $("#background-image").css("background-image", "url(static/img/fondos_movil/" + data.fondosMovil[aleatorio].file + ")");
+				        } */
+				    });
+				} else {
+					getTrackInfo();
+				}
 			}
 
 		},
@@ -653,8 +665,10 @@ var Player = function () {
 	};
 }();
 
-function getStreamTitle(data) {
-	Player.checkTitle(data);
+function getStreamTitle() {
+	 $.get("http://apih.megastar.fm/?method=music.current_track_id", function (a) {
+		Player.checkTitle(a.id_track);
+	});
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -696,7 +710,7 @@ var playerYTVideo = {
 			}
 		});
 
-		FB.XFBML.parse();
+		// FB.XFBML.parse();
 		App.adjustIframe();
 		players.push(player);
 
