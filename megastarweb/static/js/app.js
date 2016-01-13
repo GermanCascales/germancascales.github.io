@@ -68,34 +68,7 @@ var App = function () {
 
 		});
 
-		$( document ).on( "click", "a[data-share]", function(e){
-			e.preventDefault();
-
-			if ($(this).attr("data-share") == "twitter"){
-				var url = $(this).data("url");
-				var w = 500;
-				var h = 400;
-				var left = (screen.width/2)-(w/2);
-				var top = (screen.height/2)-(h/2);
-				var win = window.open(url, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
-				win.focus();
-			}else if($(this).attr("data-share") == "facebook"){
-				FB.ui({
-					method: 'feed',
-					name: 'MegaStarFM | ' + $(this).data("title"),
-					link: $(this).data("url"),
-					description: $(this).data("content"),
-					picture: 'http://files.megastar.fm/static/img/logoFBShare.jpg'
-				});
-			}else{
-				var url = $(this).data("url");
-				var iframe = document.createElement('iframe');
-				iframe.src = url;
-				iframe.setAttribute("id", "mailShare");
-				document.body.appendChild(iframe);
-				$("iframe#mailShare").remove();
-			}
-		});
+	
 
 		$( document ).on( "click", ".inside img", function(e){
 			e.preventDefault();
@@ -119,11 +92,6 @@ var App = function () {
 					hideBarsDelay : 0
 				}
 			);
-		});
-
-		$( document ).on( "click", ".goOnAir a", function(e){
-			e.preventDefault();
-			$( "nav a[data-tab=estasonando]" ).trigger("click");
 		});
 
 	}
@@ -176,14 +144,14 @@ var App = function () {
 		if (document.location.pathname.indexOf('dev.')!=-1) {
 			newURL = "http://www.megastar.fm/app_dev.php";
 		}else{
-			newURL = "http://germancascales.github.io/megastarweb";
+			newURL = "http://localhost/megastarweb";
 		}
 
 		_s.forEach(function(entry) {
 			newURL += "/" + entry;
 		});
 
-		history.pushState(null, null, newURL);
+		// history.pushState(null, null, newURL);
 
 		if(xhr){
 			xhr.abort();
@@ -200,8 +168,8 @@ var App = function () {
 				$("div.loading").removeClass("show");
 				$("div.content").html(result).addClass("show");
 
-				if(_s[0] == "twitter"){
-					$("div.navbar").addClass("twitter");
+				if(_s[0] == "facebook"){
+					$("div.navbar").addClass("facebook");
 
 					if (typeof twttr != 'undefined'){
 						twttr.widgets.load();
@@ -215,19 +183,12 @@ var App = function () {
 						});
 					}
 
-					$("div.navbar").removeClass("twitter");
+					$("div.navbar").removeClass("facebook");
 					App.adjustIframe();
-					FB.XFBML.parse();
-					$('ins.adsbygoogle').each(function(){
-						(adsbygoogle = window.adsbygoogle || []).push({});
-					});
 				}
 
 				Player.setHeaderStyle();
 
-				if (typeof ga !== "undefined" && ga !== null) {
-					ga('send','pageview',_tempurl);
-				}
 
 			}
 		});
@@ -316,6 +277,8 @@ var App = function () {
 		},
 
 		refreshContent: function () {
+			newURL = "http://localhost/estasonando";
+			// history.pushState(null, null, newURL);
 			handleContent(document.location.pathname);
 		},
 
@@ -339,9 +302,9 @@ var App = function () {
 			if (document.location.pathname.indexOf('dev.')!=-1) {
 				newURL = "http://www.megastar.fm/app_dev.php";
 			}else{
-				newURL = "http://germancascales.github.io/megastarweb";
+				newURL = "http://localhost/";
 			}
-			history.pushState(null, null, newURL);
+			// history.pushState(null, null, newURL);
 
 			activeTab(newURL);
 			contentStatus = "hide";
@@ -533,9 +496,9 @@ var Player = function () {
 			imagePath = "http://files.megastar.fm/media/artist/" + a.id_artist + "/100x100/" + a.imagesNotif[b].hash;
 		}
 
-		var notification = new Notification(a.title, {
+		var notification = new Notification(a.artistReal, {
 			icon: imagePath,
-			body: a.artistReal,
+			body: a.title,
 			dir: 'auto'
 		});
 		notification.onclick = function () {
@@ -596,6 +559,7 @@ var Player = function () {
 				$("#container_player_47363").hide();
 				$("#player_main_ctrl").show();
 				$(this).addClass("player_pause");
+				$("#player_spinner").addClass("active");
 				jwplayer().setVolume(initialVolume);
 			});
 
@@ -657,7 +621,7 @@ var Player = function () {
 		play: function(){
 			for (var i in players) {
 				var _p = players[i];
-				_p.stopVideo();
+				//_p.stopVideo();
 			}
 			jwplayer().play(true);
 			$("#player_main_ctrl").removeClass("player_play").addClass("player_pause");
@@ -683,7 +647,7 @@ var Player = function () {
 			if((typeof navBarStatus == 'undefined' || navBarStatus == "hide") && !$("div.data").hasClass("half_size")){
 				$(".star").css("background-image", "url(http://files.megastar.fm/static/desktop/v3/img/stars/" + actualColor + "h.png)");
 			}else{
-				$(".star").css("background-image", "url(http://files.megastar.fm/static/desktop/v3/img/stars/" + actualColor + ".png)");
+				$(".star").css("background-image", "url(http://guiadebenalmadena.com/megastar/static/img/stars/" + actualColor + ".png)");
 			}
 		}
 	};
@@ -692,28 +656,6 @@ var Player = function () {
 function getStreamTitle(data) {
 	Player.checkTitle(data);
 }
-
-window.fbAsyncInit = function() {
-	// init the FB JS SDK
-	FB.init({
-		appId      : '167101923498018',                        // App ID from the app dashboard
-		status     : true,                                 // Check Facebook Login status
-		cookie 	   : true,
-		xfbml      : true,                                  // Look for social plugins on the page
-		version    : 'v2.4'
-	});
-
-	// Additional initialization code such as adding Event Listeners goes here
-};
-
-// Load the SDK asynchronously
-(function(d, s, id){
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) {return;}
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/es_ES/all.js";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 
 document.addEventListener('DOMContentLoaded', function () {
 	Player.notificationRequest();
@@ -754,6 +696,7 @@ var playerYTVideo = {
 			}
 		});
 
+		FB.XFBML.parse();
 		App.adjustIframe();
 		players.push(player);
 

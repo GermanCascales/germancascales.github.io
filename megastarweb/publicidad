@@ -1,0 +1,24 @@
+
+									<div class="navbar yellow ">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<span class="navbar-brand">	Contacta con nosotros
+				<div class="pull-right closeContent">
+										<i class="fa fa-times-circle"></i>
+				</div>
+			</span>
+		</div>
+	</div>
+</div>
+
+<div class="subnavbar">
+	</div>
+
+<div class="container-fluid ">
+		<div class="row mb-20">
+		<div class="col-md-12">
+			<img src="http://guiadebenalmadena.com/megastar/static/img/PC_CONTACTO_PUBLI.jpg" class="img-responsive" style="margin: 0px auto;">
+		</div>
+	</div>
+			
+	</div>
