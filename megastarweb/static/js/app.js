@@ -221,18 +221,18 @@ var App = function () {
 
 		var images = new Array();
 		var preload = [
-			"http://files.megastar.fm/static/desktop/v3/img/stars/1h.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/1.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/2h.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/2.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/3h.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/3.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/4h.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/4.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/5h.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/5.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/6h.png",
-			"http://files.megastar.fm/static/desktop/v3/img/stars/6.png"
+			"http://germancascales.github.io/megastarweb/static/img/stars/1h.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/1.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/2h.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/2.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/3h.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/3.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/4h.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/4.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/5h.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/5.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/6h.png",
+			"http://germancascales.github.io/megastarweb/static/img/stars/6.png"
 		];
 		for (i = 0; i < preload.length; i++) {
 			images[i] = new Image();
@@ -489,7 +489,7 @@ var Player = function () {
 
 		var b = Math.floor(Math.random() * a.imagesNotif.length);
 
-		var imagePath = "http://files.megastar.fm/static/desktop/v3/img/notificacions/" + actualColor + ".png";
+		var imagePath = "http://germancascales.github.io/static/img/notifications/" + actualColor + ".png";
 
 		if(a.imagesNotif[b].generic == 0){
 			imagePath = "http://files.megastar.fm/media/artist/" + a.id_artist + "/100x100/" + a.imagesNotif[b].hash;
@@ -617,6 +617,8 @@ var Player = function () {
 				        // if (dpi == "big") {
 				            var aleatorio = Math.floor(Math.random() * data.fondosPC.length);
 				            $(".player").css("background-image", "url(static/img/fondos_pc/" + data.fondosPC[aleatorio].file + ")");
+				            $("#track_info").hide();
+
 				        /* } else {
 				            var aleatorio = Math.floor(Math.random() * data.fondosMovil.length);
 				            $("#track_info").hide();
@@ -649,6 +651,7 @@ var Player = function () {
 		setHeaderStyle: function(){
 			$(".onair .songs ul").removeClass("default green yellow blue black red pink").addClass(styles[actualColor]);
 			$(".navbar").removeClass("default green yellow blue black red pink").addClass(styles[actualColor]);
+			$(".container-fluid").removeClass("default green yellow blue black red pink").addClass(styles[actualColor]);
 			$(".track_info span").removeClass("default green yellow blue black red pink").addClass(styles[actualColor]);
 			$(".subfooter .breadcrumb").removeClass("default green yellow blue black red pink").addClass(styles[actualColor]);
 			$(".navHeader").removeClass("default green yellow blue black red pink").addClass(styles[actualColor]);
@@ -657,7 +660,7 @@ var Player = function () {
 
 		setStarStyle: function(){
 			if((typeof navBarStatus == 'undefined' || navBarStatus == "hide") && !$("div.data").hasClass("half_size")){
-				$(".star").css("background-image", "url(http://files.megastar.fm/static/desktop/v3/img/stars/" + actualColor + "h.png)");
+				$(".star").css("background-image", "url(http://germancascales.github.io/megastarweb/img/stars/" + actualColor + "h.png)");
 			}else{
 				$(".star").css("background-image", "url(http://guiadebenalmadena.com/megastar/static/img/stars/" + actualColor + ".png)");
 			}

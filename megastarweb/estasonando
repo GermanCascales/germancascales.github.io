@@ -1,19 +1,24 @@
 <style>
 .video_yt {
     position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
 }
 .myvideo {
-    position: absolute;
+    /* position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; */
 }
 iframe.myvideo {
 	border: 0;
+		position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 </style>
 <script>
@@ -61,72 +66,17 @@ $(document).ready(function () {
 <!-- <div class="subnavbar">
 	</div> -->
 
-<div class="container-fluid listening" style="max-height: 100% !important;">
-		
-					<div class="row mb-20">
-				<div class="col-md-12 video_yt">
-					<div id="track_video_yyt"></div>
-				</div>
-			</div>
-				<div class="row">
-			<div id="lyrics_block" class="col-md-12 text-center lyrics">
-							</div>
-		</div>
-		
+<div style="position: relative; height: 100%; max-height: 47%;">
+	<div class="row">
+		<div id="track_video_yyt"></div>
 	</div>
+</div>
+		
 
-<!-- <div class="subfooter">
-		<div class="row">
-		<div class="breadcrumb text-center mb-0 ">En antena</div>
-	</div>
-	<div class="row onair">
-		<div class="col-md-12">
-			<a href="/djs" target="_self">
-				<div class="program" style="background: url('http://files.megastar.fm/media/artist/240/300x300/cddf7940b0c128e2ecdb810954418af1b28039e0.jpeg')">
-					<div>Gustavo Luna</div>
-				</div>
-			</a>
-			<div class="songs">
-				<ul class="">
-					<li>Acaba de sonar</li>
-																
-																			
-																	
-						
-													<li>
-								<figure>
-																			<img src="http://files.megastar.fm/media/artist/8/100x100/3f4ff5288e3ad5f04c16298c44e8528063dd4fcb.jpeg">
-																		<div>00:41</div>
-								</figure>
-								<div>
-									<span><p class="title">Outside</p><p class="artist">Calvin Harris &amp; Ellie Goulding</p></span>
-								</div>
-							</li>
-																								
-						
-													<li>
-								<figure>
-																			<img src="http://files.megastar.fm/media/artist/21/100x100/afb7f72bb1361d04ae88c9ba59ea0fa40d07f0cd.jpeg">
-																		<div>00:38</div>
-								</figure>
-								<div>
-									<span><p class="title">Dirty Mind</p><p class="artist">Flo Rida &amp; Sam Martin</p></span>
-								</div>
-							</li>
-																								
-						
-													<li>
-								<figure>
-																			<img src="http://files.megastar.fm/media/artist/471/100x100/09de1f7f84659fb43f5d49e281f1925cf66d944b.jpeg">
-																		<div>00:35</div>
-								</figure>
-								<div>
-									<span><p class="title">End Of The Day</p><p class="artist">Alex Guerrero &amp; Clarita de Quiroz</p></span>
-								</div>
-							</li>
-																						</ul>
-			</div>
+	<div class="subfooter listening container-fluid scrollbox scrollbox_delayed">
+		<!--  -->
+
+		<div class="row scrollbox-content">
+			<div id="lyrics_block" class="col-md-12 text-center lyrics"></div>
 		</div>
 	</div>
-
-</div> -->
