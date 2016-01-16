@@ -145,7 +145,7 @@ var App = function () {
 		if (document.location.pathname.indexOf('dev.')!=-1) {
 			newURL = "http://www.megastar.fm/app_dev.php";
 		}else{
-			newURL = "http://germancascales.github.io/megastarweb";
+			newURL = "http://localhost/megastarweb";
 		}
 
 		_s.forEach(function(entry) {
@@ -278,7 +278,7 @@ var App = function () {
 		},
 
 		refreshContent: function () {
-			newURL = "http://germancascales.github.io/megastarweb/estasonando";
+			newURL = "http://localhost/megastarweb/estasonando";
 			// history.pushState(null, null, newURL);
 			handleContent("estasonando");
 		},
@@ -303,7 +303,7 @@ var App = function () {
 			if (document.location.pathname.indexOf('dev.')!=-1) {
 				newURL = "http://www.megastar.fm/app_dev.php";
 			}else{
-				newURL = "http://germancascales.github.io/";
+				newURL = "http://localhost/";
 			}
 			// history.pushState(null, null, newURL);
 
@@ -660,7 +660,7 @@ var Player = function () {
 
 		setStarStyle: function(){
 			if((typeof navBarStatus == 'undefined' || navBarStatus == "hide") && !$("div.data").hasClass("half_size")){
-				$(".star").css("background-image", "url(http://germancascales.github.io/megastarweb/img/stars/" + actualColor + "h.png)");
+				$(".star").css("background-image", "url(http://germancascales.github.io/megastarweb/static/img/stars/" + actualColor + "h.png)");
 			}else{
 				$(".star").css("background-image", "url(http://guiadebenalmadena.com/megastar/static/img/stars/" + actualColor + ".png)");
 			}
