@@ -145,7 +145,7 @@ var App = function () {
 		if (document.location.pathname.indexOf('dev.')!=-1) {
 			newURL = "http://www.megastar.fm/app_dev.php";
 		}else{
-			newURL = "http://localhost/megastarweb";
+			newURL = "http://germancascales.github.io/megastarweb";
 		}
 
 		_s.forEach(function(entry) {
@@ -278,7 +278,7 @@ var App = function () {
 		},
 
 		refreshContent: function () {
-			newURL = "http://localhost/megastarweb/estasonando";
+			newURL = "http://germancascales.github.io/megastarweb/estasonando";
 			// history.pushState(null, null, newURL);
 			handleContent("estasonando");
 		},
@@ -303,7 +303,7 @@ var App = function () {
 			if (document.location.pathname.indexOf('dev.')!=-1) {
 				newURL = "http://www.megastar.fm/app_dev.php";
 			}else{
-				newURL = "http://localhost/";
+				newURL = "http://germancascales.github.io/";
 			}
 			// history.pushState(null, null, newURL);
 
