@@ -3,6 +3,7 @@ var players = [];
 var navBarStatus = Cookies.get('navBar');
 var contentStatus = "show";
 var current_track_id;
+var dpi;
 
 var initialVolume = Cookies.get('jwplayer.volume');
 var flashPlayerActivo = 0;
@@ -450,11 +451,12 @@ var Player = function () {
 	var lastID;
 
 	function getTrackInfo(){
-		$.getJSON("http://apih.megastar.fm/?method=music.track_info&id=" + lastID + "&type=big", function(a) {
+		checkDpi();
+		$.getJSON("http://apih.megastar.fm/?method=music.track_info&id=" + lastID + "&type=" + dpi, function(a) {
 			var b = Math.floor(Math.random() * a.images.length);
 			actualColor =  a.images[b].color;
 
-			if (a.showNotif == 1){
+			if (a.showNotif == 1 && dpi == "big") {
 				launchNotificacion(a);
 			}
 
@@ -623,16 +625,16 @@ var Player = function () {
 				lastID = data;
 				if (data == 0) {
 					$.getJSON("static/json/fondos.json", function (data) {
-				        // if (dpi == "big") {
+				        if (dpi == "big") {
 				            var aleatorio = Math.floor(Math.random() * data.fondosPC.length);
 				            $(".player").css("background-image", "url(static/img/fondos_pc/" + data.fondosPC[aleatorio].file + ")");
 				            $(".track_info").hide();
 
-				        /* } else {
+				        } else {
 				            var aleatorio = Math.floor(Math.random() * data.fondosMovil.length);
 				            $("#track_info").hide();
 				            $("#background-image").css("background-image", "url(static/img/fondos_movil/" + data.fondosMovil[aleatorio].file + ")");
-				        } */
+				        }
 				    });
 				} else {
 					getTrackInfo();
@@ -715,6 +717,14 @@ function indicativo() {
             	jwplayer().setVolume(previousVolume);
             }, 2700);
         });
+    }
+}
+
+function checkDpi() {
+    if ($(window).width() < 450) {
+        dpi = "xhdpi";
+    } else {
+        dpi = "big";
     }
 }
 
