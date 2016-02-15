@@ -490,10 +490,10 @@
             if (ads_completed) {
                 loadCarrousel()
             }
-            loadMetadata();
+            /*loadMetadata();
             if (config.isLive) {
                 metadata_interval = setInterval(loadMetadata, 10000)
-            }
+            } */
             if (config.isLive && config.delay_change_stream) {
                 init_delaybar()
             }
@@ -595,7 +595,7 @@
                         getStreamTitle(author + current_song.title)
                     }) */
                    
-                        getStreamTitle();
+                        // getStreamTitle();
                 }
                 if (!config.isLive) {
                     write_log('loading metadata from ID3');
@@ -611,7 +611,7 @@
                             $stream_url_check = xmlData.audios[index].url;
                             break
                     }
-                    ID3.loadTags($stream_url_check, function() {
+                    /*ID3.loadTags($stream_url_check, function() {
                         var tags = ID3.getAllTags($stream_url_check);
                         if (tags.artist != '') {
                             author = tags.artist + ' - '
@@ -619,7 +619,7 @@
                             author = tags.artist
                         }
                         getStreamTitle(author + tags.title)
-                    })
+                    })*/
                 }
             }
         };

@@ -1,0 +1,52 @@
+.player {
+    max-width: 100% !important;
+    background-position: 50% 20% !important;
+}
+    
+#countdown {
+    display: none !important;
+}
+    
+.logo {
+    bottom: 1% !important;
+    width: 22% !important;
+}
+
+.grid {
+    background: none;
+}
+
+.player_circle {
+    zoom: 0.95;
+}
+
+.data {
+    position: absolute;
+}
+.data.half_size {
+    width: 100%;
+}
+.player.half_size{
+    width: 0%;
+}
+
+.track_info.half_size {
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+nav.half_size {
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+div#container_player_47363 {
+    position: absolute;
+    max-width: 630px;
+    width: 100%;
+    height: 354px;
+    left: 0%;
+    top: 50%;
+    margin: 0;
+    z-index: 9999;
+}

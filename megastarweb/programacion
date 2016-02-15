@@ -17,7 +17,7 @@
 <div class="container-fluid ">
 		<div class="row mb-20">
 		<div class="col-md-12">
-			<img src="http://files.megastar.fm/static/img/programacionMegaStarFM.png" class="img-responsive">
+			<a href="http://files.megastar.fm/static/img/programacionMegaStarFM.png" target="_blank"><img src="http://files.megastar.fm/static/img/programacionMegaStarFM.png" class="img-responsive"></a>
 		</div>
 	</div>
 			

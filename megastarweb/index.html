@@ -24,8 +24,8 @@
 
 	<!-- for Twitter -->
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:description" content="" />
+	<meta name="twitter:title" content="MegaStar Costa del Sol 97.1 FM" />
+	<meta name="twitter:description" content="Escucha la nueva MegaStarFM en el 97.1 FM de la Costa del Sol y en CostadelSol.MegaStar.FM" />
 	<meta name="twitter:image" content="" />
 
 	<title>MegaStarFM</title>
@@ -39,7 +39,7 @@
 	<link rel="apple-touch-icon" sizes="144x144" href="http://files.megastar.fm/apple-icon-144x144.png">
 	<link rel="apple-touch-icon" sizes="152x152" href="http://files.megastar.fm/apple-icon-152x152.png">
 	<link rel="apple-touch-icon" sizes="180x180" href="http://files.megastar.fm/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="http://files.megastar.fm/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="http://files.megastar.fm/android-icon-192x192.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="http://files.megastar.fm/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="http://files.megastar.fm/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="http://files.megastar.fm/favicon-16x16.png">
@@ -50,9 +50,12 @@
 
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/css/app.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (max-width:800px)" href="static/css/mobile.css" />
+
+	<script type="text/javascript" src="http://connect.facebook.net/es_ES/all.js#xfbml=1&version=v2.5&appId=1534673116826045"></script>
 	
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
@@ -81,9 +84,9 @@
 			</div>
 		</div>
 
-		<div class="player " style="background-image: url(http://files.megastar.fm/media/artist/423/1920x1080/4540ae7864590f83e3fdb054ba2a6bf5a96b5a1f.jpeg);">
+		<div class="player " style="background-image: url(static/img/costabg.jpg);">
 
-			<div class="star" style="background-image: url(http://files.megastar.fm/static/img/stars/5.png);"></div>
+			<div class="star"></div>
 
 			<nav>
 			
@@ -130,9 +133,17 @@
 			</div>
 
 			<div class="track_info" data-initial-track="0">
-				<span class="player_title red ">MegaStarFM</span>
-				<span class="player_artist red">Costa del Sol 97.1</span>
+				<span class="player_title red "></span>
+				<span class="player_artist red"></span>
 			</div>
+
+			<div id="logo" class="logo" onclick="loadFlashPlayer();">
+	            <img class="responsive" src="static/img/logo_megastar.png">
+	            <div id="flashPlayer"></div>
+	            <audio id="indicativo" autoplay="autoplay">
+	                <source src="static/audio/megastar.mp3">
+	            </audio>
+        	</div>
 
 		</div>
 
@@ -140,30 +151,23 @@
 
 	<script>
 
-		jQuery(document).ready(function() {
-			App.init();
-			Player.init('5');
-		});
+	jQuery(document).ready(function() {
+		App.init();
+		Player.init('5');
+	});
+
+    var sc_project=10825548; 
+	var sc_invisible=1; 
+	var sc_security="7b542a0b"; 
+	var scJsHost = (("https:" == document.location.protocol) ?
+	"https://secure." : "http://www.");
+	document.write("<sc"+"ript type='text/javascript' src='" +
+	scJsHost+
+	"statcounter.com/counter/counter.js'></"+"script>");
+
+	var audioIndicativo = document.getElementById("indicativo");
 
 	</script>
-
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1534673116826045',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+	
 </body>
 </html>
