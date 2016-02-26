@@ -7,7 +7,7 @@
     <description></description>
     <contents type="audio">
         <video type="preroll">
-            <url>http://pub1.cope.es/2/www.megastar.fm/playerstream/6549400457@x31</url>
+            <url>http://germancascales.github.io/megastarweb/static/xml/publi.xml</url>
         </video>
         <audio type="content">
             <url>http://91.121.68.52:8012/;stream.mp3</url>
