@@ -12,7 +12,7 @@
 			<Creatives>
 											<Creative>
 						<Linear>
-							<Duration>00:00:20</Duration>
+							<Duration>00:00:17</Duration>
 							<TrackingEvents>
 							<Tracking event="start"><![CDATA[http://pub1.cope.es/t/www.megastar.fm/playerstream/L28/@x31/egv1/L28/COPE/STAR_PHILADELPHIA_290216_smartclip/STAR_PHILADELPHIA_290216_smartclip_vast_x31/605274302]]></Tracking>
 							<Tracking event="midpoint"><![CDATA[http://pub1.cope.es/t/www.megastar.fm/playerstream/L28/@x31/egv3/L28/COPE/STAR_PHILADELPHIA_290216_smartclip/STAR_PHILADELPHIA_290216_smartclip_vast_x31/605274302]]></Tracking>
@@ -28,7 +28,7 @@
 							</VideoClicks>
 							<MediaFiles>
 								<MediaFile delivery="progressive" bitrate="500" width="640" height="360" type="video/mp4">
-									<![CDATA[http://imageceu1.247realmedia.com/0/COPE/STAR_PHILADELPHIA_290216_smartclip/524D5F5641535431_STAR_PHILADELPHIA_290216_smartclip_vast_x31.mp4/1455273880]]>
+									<![CDATA[http://guiadebenalmadena.com/pymedia/web/wp-content/uploads/2014/05/demo-supersol.mp4]]>
 								</MediaFile>
 							</MediaFiles>
 						</Linear>
