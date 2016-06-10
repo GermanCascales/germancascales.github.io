@@ -55,3 +55,16 @@ div#container_player_47363 {
     margin: 0;
     z-index: 9999;
 }
+
+#player_47363{
+    max-width: auto;
+    left:0;
+    top:0;
+    margin: 0;
+}
+
+@media (orientation: portrait) {
+    .player {
+        background-position: 50% 0% !important;
+    }
+}

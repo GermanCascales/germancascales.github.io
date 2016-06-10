@@ -23,15 +23,20 @@ iframe.myvideo {
 </style>
 <script>
 var API_PATH = "http://apih.megastar.fm/";
-var APP_URL = "static/";
-
 var current_track_id;
 
 $(document).ready(function () {
-	$.get(API_PATH + "?method=music.current_track_id", function (a) {
-                current_track_id = a.id_track;
+	$.getJSON("http://bo.cope.webtv.flumotion.com/api/active?format=json&podId=82", function (b) {
+       var current_song = $.parseJSON(b.value);
+            if (current_song.author != '') {
+				author = current_song.author + ' - ';
+            } else {
+               author = current_song.author;
+            }
+		current_track_id = author + current_song.title;
+	});
 
-    $.getJSON(API_PATH + "?method=music.track_info&id=" + current_track_id, function (a) {
+    $.getJSON(API_PATH + "?method=music.track_info_bytile&str=" + encodeURIComponent(current_track_id), function (a) {
     	$("#lyrics_block").html(a.lyrics);
 
     	// $("#track_video_yt").html("<div id=\"track_video_yt\" data-video=\"" + a.video_url + "\"></div>");
@@ -43,9 +48,6 @@ $(document).ready(function () {
         } else {
             $("#track_video_i").hide();
         }
-    });
-
-
     });
 });
 </script>

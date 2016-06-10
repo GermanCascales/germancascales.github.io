@@ -94,6 +94,7 @@ body{
 	float: left;
 	background-size: cover;
 	background-position: 90% 0%;
+	background-image: url("../img/intro.gif");
 }
 
 .data.half_size{
@@ -865,15 +866,29 @@ input.form-control {
 		display: none
 	}
 }
+
 div#container_player_47363 {
 	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top:0;
+	z-index: 9999;
+}
+
+div#container_player_47363 .opaque {
+	background-color: #000000;
+	opacity: 0.5;
+}
+
+#player_47363{
 	max-width: 630px;
 	width: 100%;
 	height: 354px;
 	left:50%;
 	top:50%;
 	margin:-177px 0 0 -315px;
-	z-index: 9999;
+	z-index: 2;
 }
 
 .gallery{

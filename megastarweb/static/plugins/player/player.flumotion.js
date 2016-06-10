@@ -490,6 +490,7 @@
             if (ads_completed) {
                 loadCarrousel()
             }
+            
             /*loadMetadata();
             if (config.isLive) {
                 metadata_interval = setInterval(loadMetadata, 10000)

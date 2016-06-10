@@ -151,7 +151,7 @@ var App = function () {
 		if (document.location.pathname.indexOf('dev.')!=-1) {
 			newURL = "http://www.megastar.fm/app_dev.php";
 		}else{
-			newURL = "http://germancascales.github.io/megastarweb";
+			newURL = "http://" + document.location.hostname + "/megastarweb";
 		}
 
 		_s.forEach(function(entry) {
@@ -286,7 +286,7 @@ var App = function () {
 		},
 
 		refreshContent: function () {
-			newURL = "http://germancascales.github.io/megastarweb/estasonando";
+			newURL = "http://" + window.location.hostname + window.location.pathname + "/estasonando";
 			// history.pushState(null, null, newURL);
 			handleContent("estasonando");
 		},
@@ -312,7 +312,7 @@ var App = function () {
 			if (document.location.pathname.indexOf('dev.')!=-1) {
 				newURL = "http://www.megastar.fm/app_dev.php";
 			}else{
-				newURL = "http://germancascales.github.io/";
+				newURL = "http://" + window.location.hostname + "/";
 			}
 			// history.pushState(null, null, newURL);
 
@@ -452,9 +452,15 @@ var Player = function () {
 
 	function getTrackInfo(){
 		checkDpi();
-		$.getJSON("http://apih.megastar.fm/?method=music.track_info&id=" + lastID + "&type=" + dpi, function(a) {
+
+		$(".track_info").hide();
+		$(".player").removeAttr("style");
+		$(".star").removeAttr("style");
+
+		//$.getJSON("http://apih.megastar.fm/?method=music.track_info&id=" + lastID + "&type=" + dpi, function(a) {
+		$.getJSON("http://apih.megastar.fm/?method=music.track_info_bytile&str=" + encodeURIComponent(lastID) + "&type=" + dpi, function(a) {
 			var b = Math.floor(Math.random() * a.images.length);
-			actualColor =  a.images[b].color;
+			actualColor = a.images[b].color;
 
 			if (a.showNotif == 1 && dpi == "big") {
 				launchNotificacion(a);
@@ -478,6 +484,8 @@ var Player = function () {
 			$(".player_artist").html(a.artist);
 
 			$(".track_info").show();
+
+			updateMetaThemeColor(actualColor);
 
 			if (tabActive == "estasonando"){
 				App.refreshContent();
@@ -528,7 +536,7 @@ var Player = function () {
 
 			actualColor = _c;
 
-			$("#player_main_ctrl").hide();
+			//$("#player_main_ctrl").hide();
 
 			// var initialVolume = Cookies.get('jwplayer.volume');
 			initialVolume = Cookies.get('jwplayer.volume');
@@ -568,7 +576,7 @@ var Player = function () {
 			jwplayer().onAdError(function() {
 				$("#container_player_47363").hide();
 				$("#player_main_ctrl").show();
-				$(this).addClass("player_pause");
+				$("#player_main_ctrl").removeClass("player_play").addClass("player_pause");
 				$("#player_spinner").addClass("active");
 				jwplayer().setVolume(initialVolume);
 			});
@@ -582,7 +590,7 @@ var Player = function () {
 				});
 				$("#player_spinner").addClass("active");
 				jwplayer().setVolume(initialVolume);
-
+				$("#player_main_ctrl").removeClass("player_play").addClass("player_pause");
 			});
 
 			jwplayer().onAdSkipped(function() {
@@ -595,10 +603,11 @@ var Player = function () {
 				$("#player_spinner").addClass("active");
 
 				jwplayer().setVolume(initialVolume);
+				$("#player_main_ctrl").removeClass("player_play").addClass("player_pause");
 			});
 
 			jwplayer().onIdle(function(){
-				$(this).removeClass("player_play").addClass("player_pause");
+				$("#player_main_ctrl").removeClass("player_play").addClass("player_pause");
 			});
 
 			$("#player_main_ctrl").click(function(){
@@ -623,7 +632,8 @@ var Player = function () {
 
 			if (lastID != data){
 				lastID = data;
-				if (data == 0) {
+				// if (data == 0) {
+				if (data == "SOLO TEMAZOS") {
 					$.getJSON("static/json/fondos.json", function (data) {
 				        if (dpi == "big") {
 				            var aleatorio = Math.floor(Math.random() * data.fondosPC.length);
@@ -680,8 +690,18 @@ var Player = function () {
 }();
 
 function getStreamTitle() {
-	 $.get("http://apih.megastar.fm/?method=music.current_track_id", function (a) {
+	/* $.get("http://apih.megastar.fm/?method=music.current_track_id", function (a) {
 		Player.checkTitle(a.id_track);
+	}); */
+	
+	$.getJSON("http://bo.cope.webtv.flumotion.com/api/active?format=json&podId=82", function (a) {
+       var current_song = $.parseJSON(a.value);
+            if (current_song.author != '') {
+               author = current_song.author + ' - ';
+            } else {
+               author = current_song.author;
+            }
+		Player.checkTitle(author + current_song.title);
 	});
 }
 
@@ -701,6 +721,7 @@ function loadFlashPlayer() {
     	Player.stop();
         $('.player_circle').remove();
         $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"static/audio/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
+        // $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"static/audio/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://195.55.74.208/cope/megastar.mp3&amp;provider=sound&amp;bufferlength=5&amp;autostart=true\" wmode=\"opaque\">");
         flashPlayerActivo = 1;
     } else {
         null;
@@ -726,6 +747,26 @@ function checkDpi() {
     } else {
         dpi = "big";
     }
+}
+
+function updateMetaThemeColor(myColor) {
+	var myColor;
+    if(myColor == '1') {
+        themeColor = '#b7c72c'
+    } else if(myColor == '2') {
+        themeColor = '#f5da43';
+    } else if(myColor == '3') {
+        themeColor = '#5ac5e7';
+    } else if(myColor == '4') {
+        themeColor = '#1a1919';
+    } else if(myColor == '5') {
+        themeColor = '#ce2631';
+    } else if(myColor == '6') {
+        themeColor = '#d286b2';
+    }
+
+    $('meta[name=theme-color]').remove();
+    $('head').append('<meta name="theme-color" content="'+themeColor+'">');
 }
 
 /* youtube-direct-lite */
