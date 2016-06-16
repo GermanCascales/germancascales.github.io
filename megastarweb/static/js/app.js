@@ -108,15 +108,15 @@ var App = function () {
 		var changeTab = false;
 		var _actualSelected = $("div.navContainer div.active a").attr("href");
 
-		if(_newURL !== undefined){
+		/* if(_newURL !== undefined){
 			_n = parseURL(_newURL);
-		}
+		} 
 
 		if(_actualSelected !== undefined){
 			_actualSelected = parseURL(_actualSelected);
 		}else{
 			_actualSelected = new Array();
-		}
+		}*/
 
 
 		$("div.data").addClass("half_size");
@@ -142,7 +142,7 @@ var App = function () {
 
 		var _s = parseURL(_tempurl);
 		var newURL;
-
+		
 		activeTab(_s[0]);
 
 		$("div.content").removeClass("show");
@@ -151,7 +151,7 @@ var App = function () {
 		if (document.location.pathname.indexOf('dev.')!=-1) {
 			newURL = "http://www.megastar.fm/app_dev.php";
 		}else{
-			newURL = "http://" + document.location.hostname + "/megastarweb";
+			newURL = "http://germancascales.github.io/megastarweb";
 		}
 
 		_s.forEach(function(entry) {
@@ -204,16 +204,8 @@ var App = function () {
 
 	}
 
-	function handleInitialDisplay(_tempurl){
-
-		var _s = parseURL(_tempurl);
-
-		tabActive = _s[0];
-		App.adjustIframe();
-
-	}
-
 	function parseURL(_tempurl){
+
 		var _s = _tempurl.split("/");
 		var index = _s.indexOf("app_dev.php");
 		_s.splice(0, (index + 1));
@@ -221,26 +213,26 @@ var App = function () {
 		if(_s[0] == ""){
 			_s.splice(0, 1);
 		}
-
-		return _s;
+		
+		return _s; 
 	}
 
 	function preloadImages(){
 
 		var images = new Array();
 		var preload = [
-			"http://germancascales.github.io/megastarweb/static/img/stars/1h.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/1.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/2h.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/2.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/3h.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/3.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/4h.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/4.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/5h.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/5.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/6h.png",
-			"http://germancascales.github.io/megastarweb/static/img/stars/6.png"
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/1h.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/1.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/2h.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/2.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/3h.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/3.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/4h.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/4.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/5h.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/5.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/6h.png",
+			"http://www.guiadebenalmadena.com/megastar/static/img/stars/6.png"
 		];
 		for (i = 0; i < preload.length; i++) {
 			images[i] = new Image();
@@ -252,7 +244,6 @@ var App = function () {
 		init: function () {
 			preloadImages();
 			handles();
-			handleInitialDisplay(document.location.pathname);
 
 			$('.loading').spin({
 				lines: 13
@@ -286,7 +277,7 @@ var App = function () {
 		},
 
 		refreshContent: function () {
-			newURL = "http://" + window.location.hostname + window.location.pathname + "/estasonando";
+			newURL = "http://germancascales.github.io/megastarweb/estasonando";
 			// history.pushState(null, null, newURL);
 			handleContent("estasonando");
 		},
@@ -491,7 +482,8 @@ var Player = function () {
 				App.refreshContent();
 			}
 
-		});
+		})
+.error(function() { lastID = null; });
 
 	}
 
@@ -507,7 +499,7 @@ var Player = function () {
 
 		var b = Math.floor(Math.random() * a.imagesNotif.length);
 
-		var imagePath = "http://germancascales.github.io/static/img/notifications/" + actualColor + ".png";
+		var imagePath = "http://www.guiadebenalmadena.com/megastar/static/img/notifications/" + actualColor + ".png";
 
 		if(a.imagesNotif[b].generic == 0){
 			imagePath = "http://files.megastar.fm/media/artist/" + a.id_artist + "/100x100/" + a.imagesNotif[b].hash;
@@ -681,7 +673,7 @@ var Player = function () {
 
 		setStarStyle: function(){
 			if((typeof navBarStatus == 'undefined' || navBarStatus == "hide") && !$("div.data").hasClass("half_size")){
-				$(".star").css("background-image", "url(http://germancascales.github.io/megastarweb/static/img/stars/" + actualColor + "h.png)");
+				$(".star").css("background-image", "url(http://www.guiadebenalmadena.com/megastar/static/img/stars/" + actualColor + "h.png)");
 			}else{
 				$(".star").css("background-image", "url(http://guiadebenalmadena.com/megastar/static/img/stars/" + actualColor + ".png)");
 			}
@@ -730,6 +722,7 @@ function loadFlashPlayer() {
 
 function indicativo() {
     if (flashPlayerActivo == 0) {
+    	// console.log(flashPlayerActivo);
     	var previousVolume = initialVolume;
         $( "#logo" ).mouseover(function() {
         	jwplayer().setVolume(20);

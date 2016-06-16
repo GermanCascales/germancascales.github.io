@@ -25,8 +25,7 @@ iframe.myvideo {
 var API_PATH = "http://apih.megastar.fm/";
 var current_track_id;
 
-$(document).ready(function () {
-	$.getJSON("http://bo.cope.webtv.flumotion.com/api/active?format=json&podId=82", function (b) {
+	$.getJSON("http://bo.cope.webtv.flumotion.com/api/active?format=json&podId=75", function (b) {
        var current_song = $.parseJSON(b.value);
             if (current_song.author != '') {
 				author = current_song.author + ' - ';
@@ -34,9 +33,9 @@ $(document).ready(function () {
                author = current_song.author;
             }
 		current_track_id = author + current_song.title;
-	});
-
-    $.getJSON(API_PATH + "?method=music.track_info_bytile&str=" + encodeURIComponent(current_track_id), function (a) {
+	})
+		.complete(function() {
+			 $.getJSON(API_PATH + "?method=music.track_info_bytile&str=" + encodeURIComponent(current_track_id), function (a) {
     	$("#lyrics_block").html(a.lyrics);
 
     	// $("#track_video_yt").html("<div id=\"track_video_yt\" data-video=\"" + a.video_url + "\"></div>");
@@ -49,7 +48,9 @@ $(document).ready(function () {
             $("#track_video_i").hide();
         }
     });
-});
+		});
+
+   
 </script>
 
 
