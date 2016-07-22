@@ -712,8 +712,8 @@ function loadFlashPlayer() {
     	$('.container_player_html5').remove();
     	Player.stop();
         $('.player_circle').remove();
-        $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"static/audio/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
-        // $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"static/audio/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://195.55.74.208/cope/megastar.mp3&amp;provider=sound&amp;bufferlength=5&amp;autostart=true\" wmode=\"opaque\">");
+        // $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"static/audio/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://91.121.68.52:8012/;stream.nsv&amp;provider=sound&amp;bufferlength=2&amp;autostart=true\" wmode=\"opaque\">");
+        $("#flashPlayer").html("<embed type=\"application/x-shockwave-flash\" src=\"static/audio/player2.swf\" height=\"24\" style=\"undefined\" id=\"playerFlash\" name=\"player\" bgcolor=\"#000000\" quality=\"high\" allowscriptaccess=\"always\" allowfullscreen=\"false\" flashvars=\"file=http://streaming5.elitecomunicacion.es:8030/live.mp3&amp;provider=sound&amp;bufferlength=5&amp;autostart=true\" wmode=\"opaque\">");
         flashPlayerActivo = 1;
     } else {
         null;
