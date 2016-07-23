@@ -11,7 +11,7 @@
         </video>
         <audio type="content">
             <url>http://46.105.233.234:8030/live.mp3</url>
-            <urlHtml>http://46.105.233.234:8030/live.mp3</urlHtml>
+            <urlHtml>http://46.105.233.234:8030/live.aac</urlHtml>
             <urlMobile>http://46.105.233.234:8030/live.aac</urlMobile>
         </audio>
     </contents>
