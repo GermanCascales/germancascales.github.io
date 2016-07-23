@@ -10,9 +10,9 @@
             <url>http://germancascales.github.io/megastarweb/static/xml/publi.xml</url>
         </video>
         <audio type="content">
-            <url>http://streaming5.elitecomunicacion.es:8030/live.aac</url>
-            <urlHtml>http://streaming5.elitecomunicacion.es:8030/live.aac</urlHtml>
-            <urlMobile>http://streaming5.elitecomunicacion.es:8030/live.aac</urlMobile>
+            <url>http://46.105.233.234:8030/live.mp3</url>
+            <urlHtml>http://46.105.233.234:8030/live.mp3</urlHtml>
+            <urlMobile>http://46.105.233.234:8030/live.aac</urlMobile>
         </audio>
     </contents>
     <services>
