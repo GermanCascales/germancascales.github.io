@@ -1,6 +1,7 @@
 .player {
     max-width: 100% !important;
-    background-position: 50% 20% !important;
+    /* background-position: 50% 20% !important; */
+    background-position: 100%;
 }
     
 #countdown {
@@ -67,4 +68,10 @@ div#container_player_47363 {
     .player {
         background-position: 50% 0% !important;
     }
+
+    .player .star {
+        background-size: 200%;
+    }
 }
+
+ 
