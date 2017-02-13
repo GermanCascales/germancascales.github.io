@@ -109,7 +109,7 @@ body{
 .player .star{
 	height: 100%;
 	width: 100%;
-	background-size: cover;
+	background-size: 100%;
 	background-position: 100% 100%;
 	background-repeat: no-repeat;
 }

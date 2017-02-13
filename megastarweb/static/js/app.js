@@ -151,7 +151,7 @@ var App = function () {
 		if (document.location.pathname.indexOf('dev.')!=-1) {
 			newURL = "http://www.megastar.fm/app_dev.php";
 		}else{
-			newURL = "http://germancascales.github.io/megastarweb";
+			newURL = "http://germancascales.tk/megastarweb";
 		}
 
 		_s.forEach(function(entry) {
@@ -277,7 +277,7 @@ var App = function () {
 		},
 
 		refreshContent: function () {
-			newURL = "http://germancascales.github.io/megastarweb/estasonando";
+			newURL = "http://germancascales.tk/megastarweb/estasonando";
 			// history.pushState(null, null, newURL);
 			handleContent("estasonando");
 		},
