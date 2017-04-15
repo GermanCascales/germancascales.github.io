@@ -686,7 +686,7 @@ function getStreamTitle() {
 		Player.checkTitle(a.id_track);
 	}); */
 	
-	$.getJSON("http://bo.cope.webtv.flumotion.com/api/active?format=json&podId=82", function (a) {
+	$.getJSON("http://bo.cope.webtv.flumotion.com/api/active?format=json&podId=75", function (a) {
        var current_song = $.parseJSON(a.value);
             if (current_song.author != '') {
                author = current_song.author + ' - ';
