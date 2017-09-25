@@ -16,7 +16,7 @@
 		<div class="col-md-12">
 			<ul class="nav nav-tabs nav-justified">
 				<li class="active"><a href="#megaguasap" data-toggle="tab">@MegaGuasap</a></li>
-				<li><a href="#megastarspain" data-toggle="tab">@MegaStarSpain</a></li>
+				<li><a href="#megastarspain" data-toggle="tab">@MegaStar</a></li>
 				<li><a href="#mateoyandrea" data-toggle="tab">@MateoYAndrea</a></li>
 			</ul>
 		</div>
@@ -31,7 +31,7 @@
 					<a class="twitter-timeline" href="https://twitter.com/MegaGuasap" data-widget-id="687051020057317377" lang="ES" data-chrome="noborders noscrollbar transparent">&nbsp;</a>
 				</div>
 				<div class="tab-pane fade " id="megastarspain">
-					<a class="twitter-timeline" href="https://twitter.com/MegaStarSpain" data-widget-id="482155834684624897" lang="ES" data-chrome="noborders noscrollbar transparent">&nbsp;</a>
+					<a class="twitter-timeline" href="https://twitter.com/MegaStar" data-widget-id="482155834684624897" lang="ES" data-chrome="noborders noscrollbar transparent">&nbsp;</a>
 				</div>
 				<div class="tab-pane fade " id="mateoyandrea">
 					<a class="twitter-timeline" href="https://twitter.com/MateoYAndrea" data-widget-id="641542616652361728" lang="ES" data-chrome="noborders noscrollbar transparent">&nbsp;</a>
